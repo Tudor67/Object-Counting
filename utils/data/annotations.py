@@ -60,6 +60,8 @@ def load_dots_images(gt_path, gt_dots_names):
     for gt_dots_name in gt_dots_names:
         gt_dots_path = f'{gt_path}/{gt_dots_name}'
         gt_dots_mask = skimage.io.imread(gt_dots_path) / 255.
+        if gt_dots_mask.ndim == 3:
+            gt_dots_mask = gt_dots_mask.max(axis=-1)
         gt_dots.append(gt_dots_mask)
     return gt_dots
 
