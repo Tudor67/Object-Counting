@@ -51,3 +51,6 @@ class DataGenerator(keras.utils.Sequence):
         img_ids_list = self.indexes[index*self.batch_size:(index+1)*self.batch_size]
         X, y = self.__data_generation__(img_ids_list)
         return X, y
+    
+    def get_size(self):
+        return len(self.img_names)

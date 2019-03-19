@@ -2,7 +2,9 @@ from keras.layers import *
 from keras.models import *
 from keras.optimizers import *
 
-def FCRN_A(input_shape=(None, None, 3), pretrained_weights=None):
+def FCRN_A(input_shape=(None, None, 3),
+           loss_name='mean_absolute_error',
+           pretrained_weights=None):
     # common params
     params = {
         'padding': 'same',
@@ -44,7 +46,7 @@ def FCRN_A(input_shape=(None, None, 3), pretrained_weights=None):
     # build the model
     model = Model(inputs=inputs, outputs=conv8)
     model.compile(optimizer=Adam(lr=1e-3),
-                  loss='mean_absolute_error')
+                  loss=loss_name)
     
     if pretrained_weights is not None:
         model.load_weights(pretrained_weights)
