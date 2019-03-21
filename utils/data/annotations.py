@@ -65,11 +65,17 @@ def load_dots_images(gt_path, gt_dots_names):
         gt_dots.append(gt_dots_mask)
     return gt_dots
 
+def dots_images_to_counts(dots_list):
+    counts = np.empty(len(dots_list))
+    for idx, dots_img in enumerate(dots_list):
+        counts[idx] = dots_img.sum()
+    return counts
+
 def get_dots_from_mat_files(path, mat_names):
     dots_list = []
     for mat_name in mat_names:
         dots = scipy.io.loadmat(f'{path}/{mat_name}')['image_info']
-        dots = np.floor(dots[0][0][0][0][0]).astype(np.int16)
+        dots = np.floor(dots[0][0][0][0][0]).astype(np.int32)
         dots_list.append(dots)
     return dots_list
 

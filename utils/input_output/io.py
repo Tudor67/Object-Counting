@@ -50,6 +50,26 @@ def load_images_and_density_maps(path, num_images):
     
     return images, density_maps
 
+def save_gt_counts(counts, img_names, save_path):
+    for img_name, count in zip(img_names, counts):
+        txt_name = f'{img_name.split(".")[0]}.txt'
+        txt_path = f'{save_path}/{txt_name}'
+        
+        with open(txt_path, 'w') as fo:
+            fo.write(str(int(count)))
+        
+def load_gt_counts(counts_path):
+    txt_names = sorted(os.listdir(counts_path))
+    counts = np.empty(len(txt_names), dtype=np.int)
+    
+    for i, txt_name in enumerate(txt_names):
+        txt_path = f'{counts_path}/{txt_name}'
+        
+        with open(txt_path, 'r') as fi:
+            counts[i] = int(fi.read().split()[0])
+            
+    return counts
+
 def read_json(filename):
     with open(filename, 'r') as fi:
         data = json.load(fi)

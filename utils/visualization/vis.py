@@ -30,16 +30,37 @@ def plot_some_predictions(images, density_maps, preds):
         plt.subplot(num_images, 3, 1)
         plt.title('initial image')
         plt.imshow(images[i])
-
+        
+        vmin = min(density_maps[i].min(), preds[i].min())
+        vmax = max(density_maps[i].max(), preds[i].max())
+        
         plt.subplot(num_images, 3, 2)
         plt.title(f'gt density map: {density_maps[i].sum():.2f}')
-        plt.imshow(density_maps[i], cmap='jet')
+        plt.imshow(density_maps[i], cmap='jet', vmin=vmin, vmax=vmax)
         plt.colorbar(fraction=0.045, pad=0.04)
         plt.axis('off')
 
         plt.subplot(num_images, 3, 3)
         pred = preds[i].squeeze()
         plt.title(f'pred density map: {pred.sum():.2f}')
-        plt.imshow(pred, cmap='jet')
+        plt.imshow(pred, cmap='jet', vmin=vmin, vmax=vmax)
         plt.colorbar(fraction=0.045, pad=0.04)
         plt.axis('off')
+        
+def plot_gt_vs_pred_counts(gt_counts, pred_counts, split_name, new_figure=True):
+    diff = gt_counts - pred_counts
+    sorted_indices = np.argsort(diff)
+    
+    print()
+    print(f'{split_name} set: {len(gt_counts)} images')
+    print(f'Underestimation in {(diff > 0).sum()} images')
+    print(f'Overestimation in {(diff < 0).sum()} images')
+    
+    if new_figure:
+        plt.figure(figsize=(7.5, 5))
+    plt.title(f'GT vs Predicted counts ({split_name} set: {len(gt_counts)} images)')
+    plt.plot(gt_counts[sorted_indices], color='green', label='GT count')
+    plt.plot(pred_counts[sorted_indices], label='Predicted count')
+    plt.ylabel('count')
+    plt.xlabel('images (asc order of count difference)')
+    plt.legend()
