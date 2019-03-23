@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_loss(train_loss, val_loss, title='loss'):
+def plot_logs(train_loss, val_loss, title='loss'):
     x = np.arange(len(train_loss)) + 1
     
     plt.figure(figsize=(15,5))

@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
 DATASET_NAME = 'VGG_CELLS'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/test_1'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/test_2'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -39,7 +39,7 @@ DIM = (256, 256, 3)  # VGG Cells
 #DIM = (768, 1024, 3) # ShanghaiTech
 #DIM = (720, 1280, 3) # CARPK
 BATCH_SIZE = 32
-EPOCHS = 50
+EPOCHS = 30
 SHUFFLE = True
 
 ### ground truth ###

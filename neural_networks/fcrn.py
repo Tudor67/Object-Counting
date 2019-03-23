@@ -1,6 +1,7 @@
 from keras.layers import *
 from keras.models import *
 from keras.optimizers import *
+from utils.evaluation import evaluation
 
 def FCRN_A(input_shape=(None, None, 3),
            loss_name='mean_absolute_error',
@@ -46,7 +47,12 @@ def FCRN_A(input_shape=(None, None, 3),
     # build the model
     model = Model(inputs=inputs, outputs=conv8)
     model.compile(optimizer=Adam(lr=1e-3),
-                  loss=loss_name)
+                  loss=loss_name,
+                  metrics=[evaluation.mae_keras,
+                           evaluation.rmse_keras,
+                           evaluation.underestimate_keras,
+                           evaluation.overestimate_keras,
+                           evaluation.difference_keras])
     
     if pretrained_weights is not None:
         model.load_weights(pretrained_weights)
