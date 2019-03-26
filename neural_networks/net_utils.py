@@ -20,3 +20,16 @@ def predict_density_maps_and_get_counts(model, data_generator,
         counts_pred[idx*batch_size:(idx+1)*batch_size] = batch_counts_pred
     
     return counts_pred
+
+def get_gt_counts_from_data_generator(data_generator, density_map_multiplication_factor):
+    num_images = data_generator.get_size()
+    batch_size = data_generator.batch_size
+    
+    gt_counts = np.empty(num_images, dtype=np.float32)
+    for idx in range(data_generator.__len__()):
+        # images
+        _, batch_density_maps = data_generator.__getitem__(idx)
+        batch_counts = get_counts_from_density_maps(batch_density_maps) / density_map_multiplication_factor
+        gt_counts[idx*batch_size:(idx+1)*batch_size] = batch_counts
+    
+    return gt_counts

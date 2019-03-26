@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
 DATASET_NAME = 'VGG_CELLS'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_64_sigma_5_randseed_645_loss_mse_full_img'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_32_sigma_5_randseed_325_loss_mse_full_img'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -17,8 +17,8 @@ LOGS_PATH = f'./{SUB_EXPERIMENT_NAME}/logs/'
 LOGS_FILENAME = f'{LOGS_PATH}/logs.json'
 
 ### create validation split from initial train data ###
-VGG_CELLS_RAND_SEED = 645
-VGG_CELLS_N = 64 # num of train images for current experiments
+VGG_CELLS_RAND_SEED = 325
+VGG_CELLS_N = 32 # num of train images for current experiments
 VGG_CELLS_VAL_SIZE = 100 - VGG_CELLS_N
 CARPK_RAND_SEED = 128
 CARPK_VAL_SIZE = 128
@@ -40,7 +40,7 @@ DIM = (256, 256, 3)  # VGG Cells
 #DIM = (768, 1024, 3) # ShanghaiTech
 #DIM = (720, 1280, 3) # CARPK
 BATCH_SIZE = 32
-EPOCHS = 75
+EPOCHS = 100
 SHUFFLE = True
 
 ### ground truth ###

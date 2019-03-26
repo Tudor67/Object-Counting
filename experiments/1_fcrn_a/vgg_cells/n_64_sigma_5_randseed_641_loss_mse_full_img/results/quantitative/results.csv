@@ -1,4 +1,4 @@
 Architecture_Name,Experiment_Name,Dataset_Name,Dataset_Split,MAE,RMSE,Underestimate,Overestimate,Difference
-FCRN_A,vgg_cells/n_64_sigma_5_randseed_641_loss_mse_full_img,VGG_CELLS,train,10.956,12.503,6.351%,0.000%,6.351%
-FCRN_A,vgg_cells/n_64_sigma_5_randseed_641_loss_mse_full_img,VGG_CELLS,val,11.592,12.795,5.957%,0.000%,5.957%
-FCRN_A,vgg_cells/n_64_sigma_5_randseed_641_loss_mse_full_img,VGG_CELLS,test,11.205,12.718,6.534%,0.001%,6.534%
+FCRN_A,vgg_cells/n_64_sigma_5_randseed_641_loss_mse_full_img,VGG_CELLS,train,8.031,9.524,4.584%,0.072%,4.656%
+FCRN_A,vgg_cells/n_64_sigma_5_randseed_641_loss_mse_full_img,VGG_CELLS,val,8.361,9.625,4.297%,0.000%,4.297%
+FCRN_A,vgg_cells/n_64_sigma_5_randseed_641_loss_mse_full_img,VGG_CELLS,test,8.485,9.933,4.898%,0.051%,4.948%
