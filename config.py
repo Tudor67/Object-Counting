@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
-DATASET_NAME = 'VGG_CELLS'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_64_sigma_5_randseed_645_loss_mae_full_img'
+DATASET_NAME = 'carpk'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mse_full_img'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -17,13 +17,15 @@ LOGS_PATH = f'./{SUB_EXPERIMENT_NAME}/logs/'
 LOGS_FILENAME = f'{LOGS_PATH}/logs.json'
 
 ### create validation split from initial train data ###
-VGG_CELLS_RAND_SEED = 645
-VGG_CELLS_N = 64 # num of train images for current experiments
+VGG_CELLS_RAND_SEED = 325
+VGG_CELLS_N = 32 # num of train images for vgg_cells experiments
 VGG_CELLS_VAL_SIZE = 100 - VGG_CELLS_N
-CARPK_RAND_SEED = 128
-CARPK_VAL_SIZE = 128
-SHANGHAI_TECH_PART_B_RAND_SEED = 64
-SHANGHAI_TECH_PART_B_VAL_SIZE = 64
+CARPK_RAND_SEED = 9001
+CARPK_N = 900 # num of train images for current experiments
+CARPK_VAL_SIZE = 989 - CARPK_N
+SHANGHAI_TECH_PART_B_RAND_SEED = 3201
+SHANGHAI_TECH_PART_B_N = 320 # num of train images for shanghai_tech/part_b experiments
+SHANGHAI_TECH_PART_B_VAL_SIZE = 400 - SHANGHAI_TECH_PART_B_N
 
 RAND_SEED = VGG_CELLS_RAND_SEED
 VAL_SIZE = VGG_CELLS_VAL_SIZE
@@ -35,20 +37,19 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     VAL_SIZE = SHANGHAI_TECH_PART_B_VAL_SIZE
 
 ### train ###
-LOSS_NAME = 'mean_absolute_error'
-DIM = (256, 256, 3)  # VGG Cells
+LOSS_NAME = 'mean_squared_error'
+#DIM = (256, 256, 3)  # VGG Cells
 #DIM = (768, 1024, 3) # ShanghaiTech
-#DIM = (720, 1280, 3) # CARPK
-BATCH_SIZE = 32
-EPOCHS = 100
+DIM = (720, 1280, 3) # CARPK
+BATCH_SIZE = 1
+EPOCHS = 15
 SHUFFLE = True
 
 ### ground truth ###
-# sigma for density map generation 
-SIGMA = 5
-VGG_CELLS_SIGMA = SIGMA
-CARPK_SIGMA = SIGMA
-SHANGHAI_TECH_PART_B_SIGMA = SIGMA
+# sigma for density map generation
+VGG_CELLS_SIGMA = 5
+CARPK_SIGMA = 10
+SHANGHAI_TECH_PART_B_SIGMA = 10
 
 GT_SIGMA = VGG_CELLS_SIGMA
 if DATASET_NAME.lower() == 'carpk':
@@ -56,4 +57,4 @@ if DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     GT_SIGMA = SHANGHAI_TECH_PART_B_SIGMA
     
-DENSITY_MAP_MULTIPLICATION_FACTOR = 100.
+DENSITY_MAP_MULTIPLICATION_FACTOR = 2000.

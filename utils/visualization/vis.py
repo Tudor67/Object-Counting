@@ -47,20 +47,33 @@ def plot_some_predictions(images, density_maps, preds):
         plt.colorbar(fraction=0.045, pad=0.04)
         plt.axis('off')
         
-def plot_gt_vs_pred_counts(gt_counts, pred_counts, split_name, new_figure=True):
+def plot_gt_vs_pred_counts(gt_counts, pred_counts, split_name, new_figure=True,
+                           criterion='gt-pred', print_stats=True):
     diff = gt_counts - pred_counts
+    if criterion == 'gt':
+        diff = gt_counts
     sorted_indices = np.argsort(diff)
     
-    print()
-    print(f'{split_name} set: {len(gt_counts)} images')
-    print(f'Underestimation in {(diff > 0).sum()} images')
-    print(f'Overestimation in {(diff < 0).sum()} images')
+    if print_stats:
+        print()
+        print(f'{split_name} set: {len(gt_counts)} images')
+        print(f'Underestimation in {(diff > 0).sum()} images')
+        print(f'Overestimation in {(diff < 0).sum()} images')
+        print(f'(GT stats)         counts per image: '
+              f'mean={np.mean(gt_counts):.2f}, std={np.std(gt_counts):.2f}, '
+              f'min={np.min(gt_counts)},    max={np.max(gt_counts)}')
+        print(f'(Prediction stats) counts per image: '
+              f'mean={np.mean(pred_counts):.2f}, std={np.std(pred_counts):.2f}, '
+              f'min={np.min(pred_counts):.2f}, max={np.max(pred_counts):.2f}')
     
     if new_figure:
         plt.figure(figsize=(7.5, 5))
     plt.title(f'GT vs Predicted counts ({split_name} set: {len(gt_counts)} images)')
-    plt.plot(gt_counts[sorted_indices], color='green', label='GT count')
-    plt.plot(pred_counts[sorted_indices], label='Predicted count')
-    plt.ylabel('count')
-    plt.xlabel('images (asc order of count difference)')
+    plt.plot(gt_counts[sorted_indices], color='green', label='GT counts')
+    plt.plot(pred_counts[sorted_indices], label='Predicted counts')
+    plt.ylabel('counts')
+    if criterion == 'gt-pred':
+        plt.xlabel('images (asc order of count difference)')
+    else:
+        plt.xlabel('images (asc order of gt counts)')
     plt.legend()
