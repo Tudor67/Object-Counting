@@ -33,6 +33,20 @@ MAE, RMSE, %U, %O for LPN, GAP and GSP are taken from Aich et al. (2018) \[[7]\]
 | Aich et al. (2018) \[[7]\]  | GSP-Full, full images                    | 32.94 | 36.23 | 31.42% | 0.42% | 31.84% |
 | FCRN-A (our implementation) | FCRN-A, MSE loss, full images, 15 epochs | 21.15 | 26.34 | 13.07% | 7.38% | 20.45% |
 
+## ShanghaiTech (Part B) Dataset
+Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on ShanghaiTech (Part B) dataset.
+
+| Method                           | Details                                 | MAE   | RMSE  | %U     | %O     |  %D    |
+| :---                             | :---:                                   | :---: | :---: | :---:  | :---:  | :---:  |
+| Zhang et al. (2015) \[[8]\]      | Crowd CNN                               | 32.0  | 49.8  | N/A    | N/A    | N/A    |
+| Zhang et al. (2016) \[[9]\]      | MCNN                                    | 26.4  | 41.3  | N/A    | N/A    | N/A    |
+| Sam et al. (2017) \[[10]\]       | Switching CNN                           | 21.6  | 33.4  | N/A    | N/A    | N/A    |
+| Sindagi et al. (2017) \[[11]\]   | CP-CNN                                  | 20.1  | 30.1  | N/A    | N/A    | N/A    |
+| Ranjan et al. (2018) \[[12]\]    | ic-CNN (one stage)                      | 10.4  | 16.70 | N/A    | N/A    | N/A    |
+| Ranjan et al. (2018) \[[12]\]    | ic-CNN (two stage)                      | 10.7  | 16.00 | N/A    | N/A    | N/A    |
+| Olmschenk et al. (2019) \[[13]\] | MUD-i1NN                                | 14.4  | 20.0  | N/A    | N/A    | N/A    |
+| FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5 epochs | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
+
 
 [1]: https://www.robots.ox.ac.uk/~vgg/publications/2010/Lempitsky10b/lempitsky10b.pdf
 [2]: https://www.researchgate.net/publication/261130953_Learning_to_count_with_regression_forest_and_structured_labels
@@ -41,4 +55,10 @@ MAE, RMSE, %U, %O for LPN, GAP and GSP are taken from Aich et al. (2018) \[[7]\]
 [5]: https://arxiv.org/abs/1707.05972
 [6]: https://arxiv.org/abs/1803.05494
 [7]: https://arxiv.org/abs/1805.11123
+[8]: http://www.ee.cuhk.edu.hk/~xgwang/papers/zhangLWYcvpr15.pdf
+[9]: http://openaccess.thecvf.com/content_cvpr_2016/papers/Zhang_Single-Image_Crowd_Counting_CVPR_2016_paper.pdf
+[10]: https://arxiv.org/abs/1708.00199
+[11]: https://arxiv.org/abs/1708.00953
+[12]: https://arxiv.org/abs/1807.09959
+[13]: https://arxiv.org/abs/1902.05379
 
