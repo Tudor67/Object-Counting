@@ -26,11 +26,11 @@ def get_mean_and_std_of_experiments(res_list, experiments_remarks='', decimals=1
         
         for eval_metric in eval_metrics:
             res_dict[split_name][eval_metric + '_all'] = []
+            contains_percent = False
             
             for pd_df in res_list:
                 r = pd_df.loc[split_name][eval_metric]
                 
-                contains_percent = False
                 if isinstance(r, str):
                     if '%' in r:
                         r = r.split('%')[0]

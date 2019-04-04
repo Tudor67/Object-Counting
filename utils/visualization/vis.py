@@ -28,21 +28,21 @@ def plot_some_predictions(images, density_maps, preds):
     for i in range(num_images):
         plt.figure(figsize=(15, 12))
         plt.subplot(num_images, 3, 1)
-        plt.title('initial image')
+        plt.title('Input image')
         plt.imshow(images[i])
         
         vmin = min(density_maps[i].min(), preds[i].min())
         vmax = max(density_maps[i].max(), preds[i].max())
         
         plt.subplot(num_images, 3, 2)
-        plt.title(f'gt density map: {density_maps[i].sum():.2f}')
+        plt.title(f'GT density map: {density_maps[i].sum():.2f}')
         plt.imshow(density_maps[i], cmap='jet', vmin=vmin, vmax=vmax)
         plt.colorbar(fraction=0.045, pad=0.04)
         plt.axis('off')
 
         plt.subplot(num_images, 3, 3)
         pred = preds[i].squeeze()
-        plt.title(f'pred density map: {pred.sum():.2f}')
+        plt.title(f'Predicted density map: {pred.sum():.2f}')
         plt.imshow(pred, cmap='jet', vmin=vmin, vmax=vmax)
         plt.colorbar(fraction=0.045, pad=0.04)
         plt.axis('off')
