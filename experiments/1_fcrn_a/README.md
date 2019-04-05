@@ -20,9 +20,19 @@
 * Counts per image: 174 ± 64.
 
 ## CARPK Dataset
-| Method              | Loss  | Epochs | MAE    | RMSE  | %U     | %O    |  %D    |
-| :---:               | :---: | :---:  | :---:  | :---: | :---:  | :---: | :---:  | 
-| FCRN-A, full images | MSE   | 15     | 21.15  | 26.34 | 13.07% | 7.38% | 20.45% |
+| Method                        | Loss  | Epochs | MAE    | RMSE  | %U     | %O    |  %D    |
+| :---:                         | :---: | :---:  | :---:  | :---: | :---:  | :---: | :---:  | 
+| FCRN-A, full images           | MSE   | 15     | 21.15  | 26.34 | 13.07% | 7.38% | 20.45% |
+| FCRN-A, patches 32 * (128x128)| MSE   | 15     | 22.10  |	28.73 | 18.13% | 3.22% | 21.35% |
+
+* FCRN-A trained with full images or with 128x128 patches (MSE loss, 15 epochs) overfits the train set.
+
+| Details               | Split | Loss  | Epochs | MAE    | RMSE  |
+| :---:                 | :---: | :---: | :---:  | :---:  | :---: |
+| full images           | train | MSE   | 15     |  5.32  |  5.90 |
+| full images           | test  | MSE   | 15     | 21.15  | 26.34 |
+| patches 32 * (128x128)| train | MSE   | 15     |  3.65  |	 5.14 |
+| patches 32 * (128x128)| test  | MSE   | 15     | 22.10  |	28.73 |
 
 ## ShanghaiTech (Part B) Dataset
 | Method              | Loss  | Epochs | MAE   | RMSE  | %U     | %O     |  %D    |

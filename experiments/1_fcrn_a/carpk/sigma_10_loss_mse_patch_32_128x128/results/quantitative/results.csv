@@ -1,0 +1,4 @@
+Architecture_Name,Experiment_Name,Dataset_Name,Dataset_Split,MAE,RMSE,Underestimate,Overestimate,Difference
+FCRN_A,carpk/sigma_10_loss_mse_patch_32_128x128,carpk,train,3.648,5.139,6.549%,2.027%,8.576%
+FCRN_A,carpk/sigma_10_loss_mse_patch_32_128x128,carpk,val,4.256,5.598,7.814%,1.678%,9.492%
+FCRN_A,carpk/sigma_10_loss_mse_patch_32_128x128,carpk,test,22.095,28.732,18.128%,3.224%,21.351%
