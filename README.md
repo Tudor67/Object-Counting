@@ -75,13 +75,15 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 | Sam et al. (2017) \[[11]\]       | Switching CNN                                           | 21.6  | 33.4  | N/A    | N/A    | N/A    |
 | Sindagi et al. (2017) \[[12]\]   | CP-CNN                                                  | 20.1  | 30.1  | N/A    | N/A    | N/A    |
 | Ranjan et al. (2018) \[[13]\]    | ic-CNN (one stage)                                      | 10.4  | 16.70 | N/A    | N/A    | N/A    |
-| Ranjan et al. (2018) \[[13]\]    | ic-CNN (two stage)                                      | 10.7  | 16.00 | N/A    | N/A    | N/A    |
+| Ranjan et al. (2018) \[[13]\]    | ic-CNN (two stages)                                     | 10.7  | 16.00 | N/A    | N/A    | N/A    |
 | Olmschenk et al. (2019) \[[14]\] | MUD-i1NN                                                | 14.4  | 20.0  | N/A    | N/A    | N/A    |
-| FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5 epochs                 | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
+| FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5/20 epochs              | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, patches 32 * (128x128), 54/100 epochs | 21.49 | 34.98 |  9.33% |  8.04% | 17.37% |
 
 ## Qualitative results
-![fcrn_a_full_images](./images/fcrn_a_full_images.png)
+![fcrn_a_vgg_cells_qualitative_results](./images/fcrn_a_vgg_cells_qualitative_results_full_and_patches.png)  
+![fcrn_a_carpk_qualitative_results](./images/fcrn_a_carpk_qualitative_results_full_and_patches.png)  
+![fcrn_a_shanghai_tech_b_qualitative_results](./images/fcrn_a_shanghai_tech_b_qualitative_results_full_and_patches.png)  
 
 [1]: https://www.robots.ox.ac.uk/~vgg/publications/2010/Lempitsky10b/lempitsky10b.pdf
 [2]: https://www.researchgate.net/publication/261130953_Learning_to_count_with_regression_forest_and_structured_labels

@@ -54,7 +54,7 @@
 ## ShanghaiTech (Part B) Dataset
 | Method              | Loss  | Epochs | MAE   | RMSE  | %U     | %O     |  %D    |
 | :---                | :---: | :---:  | :---: | :---: | :---:  | :---:  | :---:  |
-| FCRN-A, full images | MSE   | 5      | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
+| FCRN-A, full images | MSE   | 5/20   | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
 
 * FCRN-A trained with 32 * (128x128) patches (MSE loss):
 
