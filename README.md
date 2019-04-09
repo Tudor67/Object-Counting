@@ -31,17 +31,18 @@ Computer Vision Research Project
 ### VGG Cells
 Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells dataset.
 
-| Method                                | Details                 | N = 32    | N = 64    |
-| :---                                  | :---:                   | :---:     | :---:     |
-| Lempitsky and Zisserman (2010)\[[1]\] | Linear ridge regression | 5.9 ± 0.5 | N/A       |
-| Lempitsky and Zisserman (2010)\[[1]\] | Density learning        | 3.5 ± 0.2 | N/A       |
-| Fiaschi et al. (2012)\[[2]\]          | Regression forests      | 3.2 ± 0.1 | N/A       |
-| Arteta et al. (2014)\[[3]\]           | Interactive counting    | 3.5 ± 0.1 | N/A       |
-| Xie et al. (2016)\[[4]\]              | FCRN-A                  | 2.9 ± 0.2 | 2.9 ± 0.2 |
-| Xie et al. (2016)\[[4]\]              | FCRN-B                  | 3.3 ± 0.2 | 3.2 ± 0.2 |
-| Cohen et al. (2017) \[[5]\]           | Count-ception           | 2.4 ± 0.4 | N/A       |
-| FCRN-A (our implementation)           | FCRN-A, MSE loss        | 6.0 ± 1.7 | 5.4 ± 1.7 |
-| FCRN-A (our implementation)           | FCRN-A, MAE loss        | 8.3 ± 2.7 | 6.6 ± 1.8 |
+| Method                                | Details                                 | N = 32    | N = 64    |
+| :---                                  | :---                                    | :---:     | :---:     |
+| Lempitsky and Zisserman (2010)\[[1]\] | Linear ridge regression                 | 5.9 ± 0.5 | N/A       |
+| Lempitsky and Zisserman (2010)\[[1]\] | Density learning                        | 3.5 ± 0.2 | N/A       |
+| Fiaschi et al. (2012)\[[2]\]          | Regression forests                      | 3.2 ± 0.1 | N/A       |
+| Arteta et al. (2014)\[[3]\]           | Interactive counting                    | 3.5 ± 0.1 | N/A       |
+| Xie et al. (2016)\[[4]\]              | FCRN-A                                  | 2.9 ± 0.2 | 2.9 ± 0.2 |
+| Xie et al. (2016)\[[4]\]              | FCRN-B                                  | 3.3 ± 0.2 | 3.2 ± 0.2 |
+| Cohen et al. (2017) \[[5]\]           | Count-ception                           | 2.4 ± 0.4 | N/A       |
+| FCRN-A (our implementation)           | FCRN-A, MSE loss, full images           | 6.0 ± 1.7 | 5.4 ± 1.7 |
+| FCRN-A (our implementation)           | FCRN-A, MAE loss, full images           | 8.3 ± 2.7 | 6.6 ± 1.8 |
+| FCRN-A (our implementation)           | FCRN-A, MSE loss, patches 4 * (128x128) | 5.5 ± 0.5 | 3.9 ± 1.1 |
 
 * N - number of train images;
 * Our implementation does not include data preprocessing and augmentation;
@@ -53,28 +54,31 @@ Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on CARPK dataset.  
 MAE, RMSE, %U, %O for LPN, GAP and GSP are taken from Aich et al. (2018) \[[8]\].
 
-| Method                      | Details                                  | MAE   | RMSE  | %U     | %O    |  %D    |
-| :---                        | :---:                                    | :---: | :---: | :---:  | :---: | :---:  | 
-| Hsieh et al. (2017) \[[6]\] | LPN                                      | 13.72 | 21.77 |  N/A   |  N/A  |  N/A   |
-| Aich et al. (2018) \[[7]\]  | GAP-224, patches                         |  7.65 |  9.59 |  6.56% | 0.84% |  7.40% |
-| Aich et al. (2018) \[[7]\]  | GAP-Full, full images                    | 19.61 | 21.65 | 18.71% | 0.24% | 18.95% |
-| Aich et al. (2018) \[[8]\]  | GSP-224, patches                         |  5.46 |  8.09 |  4.14% | 1.14% |  5.28% |
-| Aich et al. (2018) \[[8]\]  | GSP-Full, full images                    | 32.94 | 36.23 | 31.42% | 0.42% | 31.84% |
-| FCRN-A (our implementation) | FCRN-A, MSE loss, full images, 15 epochs | 21.15 | 26.34 | 13.07% | 7.38% | 20.45% |
+| Method                      | Details                                             | MAE   | RMSE  | %U     | %O     |  %D    |
+| :---                        | :---                                                | :---: | :---: | :---:  | :---:  | :---:  | 
+| Hsieh et al. (2017) \[[6]\] | LPN                                                 | 13.72 | 21.77 |  N/A   |  N/A   |  N/A   |
+| Aich et al. (2018) \[[7]\]  | GAP-224, patches                                    |  7.65 |  9.59 |  6.56% |  0.84% |  7.40% |
+| Aich et al. (2018) \[[7]\]  | GAP-Full, full images                               | 19.61 | 21.65 | 18.71% |  0.24% | 18.95% |
+| Aich et al. (2018) \[[8]\]  | GSP-224, patches                                    |  5.46 |  8.09 |  4.14% |  1.14% |  5.28% |
+| Aich et al. (2018) \[[8]\]  | GSP-Full, full images                               | 32.94 | 36.23 | 31.42% |  0.42% | 31.84% |
+| FCRN-A (our implementation) | FCRN-A, MSE loss, full images, 15 epochs            | 21.15 | 26.34 | 13.07% |  7.38% | 20.45% |
+| FCRN-A (our implementation) | FCRN-A, MSE loss, patches 32 * (128x128), 15 epochs | 22.10 | 28.73 | 18.13% |  3.22% | 21.35% |
+| FCRN-A (our implementation) | FCRN-A, MSE loss, patches 32 * (128x128),  3 epochs | 14.73 | 17.45 |  2.15% | 12.08% | 14.23% |
 
 ### ShanghaiTech (Part B)
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on ShanghaiTech (Part B) dataset.
 
-| Method                           | Details                                 | MAE   | RMSE  | %U     | %O     |  %D    |
-| :---                             | :---:                                   | :---: | :---: | :---:  | :---:  | :---:  |
-| Zhang et al. (2015) \[[9]\]      | Crowd CNN                               | 32.0  | 49.8  | N/A    | N/A    | N/A    |
-| Zhang et al. (2016) \[[10]\]     | MCNN                                    | 26.4  | 41.3  | N/A    | N/A    | N/A    |
-| Sam et al. (2017) \[[11]\]       | Switching CNN                           | 21.6  | 33.4  | N/A    | N/A    | N/A    |
-| Sindagi et al. (2017) \[[12]\]   | CP-CNN                                  | 20.1  | 30.1  | N/A    | N/A    | N/A    |
-| Ranjan et al. (2018) \[[13]\]    | ic-CNN (one stage)                      | 10.4  | 16.70 | N/A    | N/A    | N/A    |
-| Ranjan et al. (2018) \[[13]\]    | ic-CNN (two stage)                      | 10.7  | 16.00 | N/A    | N/A    | N/A    |
-| Olmschenk et al. (2019) \[[14]\] | MUD-i1NN                                | 14.4  | 20.0  | N/A    | N/A    | N/A    |
-| FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5 epochs | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
+| Method                           | Details                                                 | MAE   | RMSE  | %U     | %O     |  %D    |
+| :---                             | :---                                                    | :---: | :---: | :---:  | :---:  | :---:  |
+| Zhang et al. (2015) \[[9]\]      | Crowd CNN                                               | 32.0  | 49.8  | N/A    | N/A    | N/A    |
+| Zhang et al. (2016) \[[10]\]     | MCNN                                                    | 26.4  | 41.3  | N/A    | N/A    | N/A    |
+| Sam et al. (2017) \[[11]\]       | Switching CNN                                           | 21.6  | 33.4  | N/A    | N/A    | N/A    |
+| Sindagi et al. (2017) \[[12]\]   | CP-CNN                                                  | 20.1  | 30.1  | N/A    | N/A    | N/A    |
+| Ranjan et al. (2018) \[[13]\]    | ic-CNN (one stage)                                      | 10.4  | 16.70 | N/A    | N/A    | N/A    |
+| Ranjan et al. (2018) \[[13]\]    | ic-CNN (two stage)                                      | 10.7  | 16.00 | N/A    | N/A    | N/A    |
+| Olmschenk et al. (2019) \[[14]\] | MUD-i1NN                                                | 14.4  | 20.0  | N/A    | N/A    | N/A    |
+| FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5 epochs                 | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
+| FCRN-A (our implementation)      | FCRN-A, MSE loss, patches 32 * (128x128), 54/100 epochs | 21.49 | 34.98 |  9.33% |  8.04% | 17.37% |
 
 ## Qualitative results
 ![fcrn_a_full_images](./images/fcrn_a_full_images.png)
