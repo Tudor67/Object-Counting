@@ -78,6 +78,7 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 | Ranjan et al. (2018) \[[13]\]    | ic-CNN (two stages)                                     | 10.7  | 16.00 | N/A    | N/A    | N/A    |
 | Olmschenk et al. (2019) \[[14]\] | MUD-i1NN                                                | 14.4  | 20.0  | N/A    | N/A    | N/A    |
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5/20 epochs              | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
+| FCRN-A (our implementation)      | FCRN-A, LogCosh loss, full images, 24/30 epochs         | 19.95 | 33.94 | 11.70% |  4.43% | 16.13% |
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, patches 32 * (128x128), 54/100 epochs | 21.49 | 34.98 |  9.33% |  8.04% | 17.37% |
 
 ## Qualitative results
