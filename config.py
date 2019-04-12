@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
-DATASET_NAME = 'carpk'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_15'
+DATASET_NAME = 'vgg_cells'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_64_sigma_5_randseed_645_loss_logcosh_full_img'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -49,8 +49,8 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
         
 PATCH_DIM = IMG_DIM
 PATCHES_PER_IMAGE = 1
-BATCH_SIZE = 1
-EPOCHS = 15
+BATCH_SIZE = 32
+EPOCHS = 100
 SHUFFLE = True
 
 ### ground truth ###
@@ -65,4 +65,4 @@ if DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     GT_SIGMA = SHANGHAI_TECH_PART_B_SIGMA
     
-DENSITY_MAP_MULTIPLICATION_FACTOR = 2000.
+DENSITY_MAP_MULTIPLICATION_FACTOR = 100.

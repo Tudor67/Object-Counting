@@ -42,6 +42,7 @@ Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells
 | Cohen et al. (2017) \[[5]\]           | Count-ception                           | 2.4 ± 0.4 | N/A       |
 | FCRN-A (our implementation)           | FCRN-A, MSE loss, full images           | 6.0 ± 1.7 | 5.4 ± 1.7 |
 | FCRN-A (our implementation)           | FCRN-A, MAE loss, full images           | 8.3 ± 2.7 | 6.6 ± 1.8 |
+| FCRN-A (our implementation)           | FCRN-A, LogCosh loss, full images       | 8.3 ± 1.8 | 3.6 ± 0.3 |
 | FCRN-A (our implementation)           | FCRN-A, MSE loss, patches 4 * (128x128) | 5.5 ± 0.5 | 3.9 ± 1.1 |
 
 * N - number of train images;
