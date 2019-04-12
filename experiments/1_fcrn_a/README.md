@@ -58,6 +58,7 @@
 | FCRN-A, full images | MSE     |  3/100 |  53.27 |  67.10 |  11.61% | 31.45% |  43.06% |
 | FCRN-A, full images | MAE     | 51/100 | 123.70 | 155.97 | 100.00% |  0.00% | 100.00% |
 |`FCRN-A, full images`|`LogCosh`|`24/30` | `19.95`| `33.94`| `11.70%`| `4.43%`| `16.13%`|
+| FCRN-A, full images | LogCosh | 23/100 |  23.69 |  40.34 |  18.07% |  1.08% |  19.15% |
 
 * FCRN-A trained with 32 * (128x128) patches (MSE loss):
 
