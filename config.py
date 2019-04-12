@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
-DATASET_NAME = 'shanghai_tech/part_b'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_100'
+DATASET_NAME = 'carpk'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_15'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -50,7 +50,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
 PATCH_DIM = IMG_DIM
 PATCHES_PER_IMAGE = 1
 BATCH_SIZE = 1
-EPOCHS = 100
+EPOCHS = 15
 SHUFFLE = True
 
 ### ground truth ###
