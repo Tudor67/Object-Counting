@@ -17,6 +17,8 @@
 | FCRN-A, patches 4 * (128x128) | MSE     | ~100   | 64    | 3.9 ± 1.1 |  4.8 ± 1.0 | 0.6% ± 0.4% | 1.7% ± 1.0% | 2.3% ± 0.7% |
 | FCRN-A, patches 4 * (128x128) | MAE     | ~100   | 32    | 6.2 ± 1.8 |  8.0 ± 1.8 | 3.4% ± 1.1% | 0.2% ± 0.1% | 3.6% ± 1.0% |
 | FCRN-A, patches 4 * (128x128) | MAE     | ~100   | 64    | 7.4 ± 1.0 |  9.2 ± 1.1 | 4.3% ± 0.6% | 0.0% ± 0.0% | 4.3% ± 0.6% |
+| FCRN-A, patches 4 * (128x128) | LogCosh | ~100   | 32    | 5.0 ± 1.8 |  6.5 ± 2.5 | 1.7% ± 1.2% | 1.2% ± 0.7% | 2.9% ± 1.0% |
+| FCRN-A, patches 4 * (128x128) | LogCosh | ~100   | 64    | 4.0 ± 0.9 |  5.3 ± 1.0 | 1.8% ± 0.9% | 0.5% ± 0.6% | 2.4% ± 0.5% |
 
 * N - number of train images;
 * Our implementation does not include data preprocessing and augmentation;

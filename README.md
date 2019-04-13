@@ -31,20 +31,21 @@ Computer Vision Research Project
 ### VGG Cells
 Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells dataset.
 
-| Method                                | Details                                 | N = 32    | N = 64    |
-| :---                                  | :---                                    | :---:     | :---:     |
-| Lempitsky and Zisserman (2010)\[[1]\] | Linear ridge regression                 | 5.9 ± 0.5 | N/A       |
-| Lempitsky and Zisserman (2010)\[[1]\] | Density learning                        | 3.5 ± 0.2 | N/A       |
-| Fiaschi et al. (2012)\[[2]\]          | Regression forests                      | 3.2 ± 0.1 | N/A       |
-| Arteta et al. (2014)\[[3]\]           | Interactive counting                    | 3.5 ± 0.1 | N/A       |
-| Xie et al. (2016)\[[4]\]              | FCRN-A                                  | 2.9 ± 0.2 | 2.9 ± 0.2 |
-| Xie et al. (2016)\[[4]\]              | FCRN-B                                  | 3.3 ± 0.2 | 3.2 ± 0.2 |
-| Cohen et al. (2017) \[[5]\]           | Count-ception                           | 2.4 ± 0.4 | N/A       |
-| FCRN-A (our implementation)           | FCRN-A, MSE loss, full images           | 6.0 ± 1.7 | 5.4 ± 1.7 |
-| FCRN-A (our implementation)           | FCRN-A, MAE loss, full images           | 8.3 ± 2.7 | 6.6 ± 1.8 |
-| FCRN-A (our implementation)           | FCRN-A, LogCosh loss, full images       | 8.3 ± 1.8 | 3.6 ± 0.3 |
-| FCRN-A (our implementation)           | FCRN-A, MSE loss, patches 4 * (128x128) | 5.5 ± 0.5 | 3.9 ± 1.1 |
-| FCRN-A (our implementation)           | FCRN-A, MAE loss, patches 4 * (128x128) | 6.2 ± 1.8 | 7.4 ± 1.0 |
+| Method                                | Details                                   | N = 32    | N = 64    |
+| :---                                  | :---                                      | :---:     | :---:     |
+| Lempitsky and Zisserman (2010)\[[1]\] | Linear ridge regression                   | 5.9 ± 0.5 | N/A       |
+| Lempitsky and Zisserman (2010)\[[1]\] | Density learning                          | 3.5 ± 0.2 | N/A       |
+| Fiaschi et al. (2012)\[[2]\]          | Regression forests                        | 3.2 ± 0.1 | N/A       |
+| Arteta et al. (2014)\[[3]\]           | Interactive counting                      | 3.5 ± 0.1 | N/A       |
+| Xie et al. (2016)\[[4]\]              | FCRN-A                                    | 2.9 ± 0.2 | 2.9 ± 0.2 |
+| Xie et al. (2016)\[[4]\]              | FCRN-B                                    | 3.3 ± 0.2 | 3.2 ± 0.2 |
+| Cohen et al. (2017) \[[5]\]           | Count-ception                             | 2.4 ± 0.4 | N/A       |
+| FCRN-A (our implementation)           | FCRN-A, MSE loss, full images             | 6.0 ± 1.7 | 5.4 ± 1.7 |
+| FCRN-A (our implementation)           | FCRN-A, MAE loss, full images             | 8.3 ± 2.7 | 6.6 ± 1.8 |
+| FCRN-A (our implementation)           | FCRN-A, LogCosh loss, full images         | 8.3 ± 1.8 | 3.6 ± 0.3 |
+| FCRN-A (our implementation)           | FCRN-A, MSE loss, patches 4*(128x128)     | 5.5 ± 0.5 | 3.9 ± 1.1 |
+| FCRN-A (our implementation)           | FCRN-A, MAE loss, patches 4*(128x128)     | 6.2 ± 1.8 | 7.4 ± 1.0 |
+| FCRN-A (our implementation)           | FCRN-A, LogCosh loss, patches 4*(128x128) | 5.0 ± 1.8 | 4.0 ± 0.9 |
 
 * N - number of train images;
 * Our implementation does not include data preprocessing and augmentation;
