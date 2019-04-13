@@ -55,13 +55,15 @@
 | 15     | test  | 22.10 | 28.73 |
 
 ## ShanghaiTech (Part B) Dataset
-| Method              | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |
-| :---                | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
-| FCRN-A, full images | MSE     |  5/20  |  52.95 |  74.53 |  19.08% | 23.73% |  42.81% |
-| FCRN-A, full images | MSE     |  3/100 |  53.27 |  67.10 |  11.61% | 31.45% |  43.06% |
-| FCRN-A, full images | MAE     | 51/100 | 123.70 | 155.97 | 100.00% |  0.00% | 100.00% |
-|`FCRN-A, full images`|`LogCosh`|`24/30` | `19.95`| `33.94`| `11.70%`| `4.43%`| `16.13%`|
-| FCRN-A, full images | LogCosh | 23/100 |  23.69 |  40.34 |  18.07% |  1.08% |  19.15% |
+| Method                         | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |
+| :---                           | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
+| FCRN-A, full images            | MSE     |  5/20  |  52.95 |  74.53 |  19.08% | 23.73% |  42.81% |
+| FCRN-A, full images            | MSE     |  3/100 |  53.27 |  67.10 |  11.61% | 31.45% |  43.06% |
+| FCRN-A, full images            | MAE     | 51/100 | 123.70 | 155.97 | 100.00% |  0.00% | 100.00% |
+|`FCRN-A, full images`           |`LogCosh`|`24/30` | `19.95`| `33.94`| `11.70%`| `4.43%`| `16.13%`|
+| FCRN-A, full images            | LogCosh | 23/100 |  23.69 |  40.34 |  18.07% |  1.08% |  19.15% |
+| FCRN-A, patches 32 * (128x128) | MSE     | 54/100 |  21.49 |  34.98 |   9.33% |  8.04% |  17.37% |
+| FCRN-A, patches 32 * (128x128) | LogCosh | 86/100 |  20.81 |  38.11 |  15.44% |  1.38% |  16.82% |
 
 * FCRN-A trained with 32 * (128x128) patches (MSE loss):
 
