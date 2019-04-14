@@ -26,11 +26,12 @@
 * Counts per image: 174 ± 64.
 
 ## CARPK Dataset
-| Method                        | Loss    | Epochs | MAE    | RMSE  | %U     | %O    |  %D    |
-| :---                          | :---:   | :---:  | :---:  | :---: | :---:  | :---: | :---:  | 
-| FCRN-A, full images           | MSE     |  15    | 21.15  | 26.34 | 13.07% | 7.38% | 20.45% |
-| FCRN-A, full images           | LogCosh | 14/15  | 23.34  | 29.65 | 20.41% | 2.15% | 22.56% |
-| FCRN-A, patches 32 * (128x128)| MSE     |  15    | 22.10  | 28.73 | 18.13% | 3.22% | 21.35% |
+| Method                        | Loss    | Epochs | MAE   | RMSE   | %U     | %O    |  %D    |
+| :---                          | :---:   | :---:  | :---: | :---:  | :---:  | :---: | :---:  | 
+| FCRN-A, full images           | MSE     |   15   | 21.15 |  26.34 | 13.07% | 7.38% | 20.45% |
+| FCRN-A, full images           | MAE     |  1/15  | 95.54 | 103.78 | 92.30% | 0.02% | 92.32% |
+| FCRN-A, full images           | LogCosh | 14/15  | 23.34 |  29.65 | 20.41% | 2.15% | 22.56% |
+| FCRN-A, patches 32 * (128x128)| MSE     |   15   | 22.10 |  28.73 | 18.13% | 3.22% | 21.35% |
 
 * FCRN-A trained with full images or with 128x128 patches (MSE loss, 15 epochs) overfits the train set:
 
