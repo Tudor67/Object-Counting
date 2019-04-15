@@ -32,6 +32,7 @@
 | FCRN-A, full images           | MAE     |  1/15  | 95.54 | 103.78 | 92.30% | 0.02% | 92.32% |
 | FCRN-A, full images           | LogCosh | 14/15  | 23.34 |  29.65 | 20.41% | 2.15% | 22.56% |
 | FCRN-A, patches 32 * (128x128)| MSE     |   15   | 22.10 |  28.73 | 18.13% | 3.22% | 21.35% |
+| FCRN-A, patches 32 * (128x128)| LogCosh |   15   | 26.19 |  31.63 | 23.81% | 1.50% | 25.31% |
 
 * FCRN-A trained with full images or with 128x128 patches (MSE loss, 15 epochs) overfits the train set:
 
@@ -58,6 +59,13 @@
 | 10     | test  | 24.82 | 31.04 |
 | 15     | train |  3.65 |  5.14 |
 | 15     | test  | 22.10 | 28.73 |
+
+* FCRN-A trained with 32 * (128x128) patches (LogCosh loss):
+
+| Epochs | Split | MAE   | RMSE  | %U     | %O     |  %D    |
+| :---:  | :---: | :---: | :---: | :---:  | :---:  | :---:  |
+| 15     | train |  4.11 |  4.75 |  1.74% |  7.92% |  9.66% |
+| 15     | test  | 26.19 | 31.63 | 23.81% |  1.50% | 25.31% |
 
 ## ShanghaiTech (Part B) Dataset
 | Method                         | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |

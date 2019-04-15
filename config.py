@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
 DATASET_NAME = 'carpk'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mae_full_img_epochs_15'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_patch_32_128x128_15_epochs'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -37,7 +37,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     VAL_SIZE = SHANGHAI_TECH_PART_B_VAL_SIZE
 
 ### train ###
-LOSS_NAME = 'mean_absolute_error'
+LOSS_NAME = 'logcosh'
 
 IMG_DIM = None
 if DATASET_NAME.lower() == 'vgg_cells':
@@ -47,9 +47,9 @@ elif DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     IMG_DIM = (768, 1024, 3) # ShanghaiTech
         
-PATCH_DIM = IMG_DIM
-PATCHES_PER_IMAGE = 1
-BATCH_SIZE = 1
+PATCH_DIM = (128, 128, 3)
+PATCHES_PER_IMAGE = 32
+BATCH_SIZE = 32
 EPOCHS = 15
 SHUFFLE = True
 
