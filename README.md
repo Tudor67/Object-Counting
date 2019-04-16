@@ -57,16 +57,19 @@ Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on CARPK dataset.  
 MAE, RMSE, %U, %O for LPN, GAP and GSP are taken from Aich et al. (2018) \[[8]\].
 
-| Method                      | Details                                             | MAE   | RMSE  | %U     | %O     |  %D    |
-| :---                        | :---                                                | :---: | :---: | :---:  | :---:  | :---:  | 
-| Hsieh et al. (2017) \[[6]\] | LPN                                                 | 13.72 | 21.77 |  N/A   |  N/A   |  N/A   |
-| Aich et al. (2018) \[[7]\]  | GAP-224, patches                                    |  7.65 |  9.59 |  6.56% |  0.84% |  7.40% |
-| Aich et al. (2018) \[[7]\]  | GAP-Full, full images                               | 19.61 | 21.65 | 18.71% |  0.24% | 18.95% |
-| Aich et al. (2018) \[[8]\]  | GSP-224, patches                                    |  5.46 |  8.09 |  4.14% |  1.14% |  5.28% |
-| Aich et al. (2018) \[[8]\]  | GSP-Full, full images                               | 32.94 | 36.23 | 31.42% |  0.42% | 31.84% |
-| FCRN-A (our implementation) | FCRN-A, MSE loss, full images, 15 epochs            | 21.15 | 26.34 | 13.07% |  7.38% | 20.45% |
-| FCRN-A (our implementation) | FCRN-A, MSE loss, patches 32 * (128x128), 15 epochs | 22.10 | 28.73 | 18.13% |  3.22% | 21.35% |
-| FCRN-A (our implementation) | FCRN-A, MSE loss, patches 32 * (128x128),  3 epochs | 14.73 | 17.45 |  2.15% | 12.08% | 14.23% |
+| Method                      | Details                                                 | MAE   | RMSE  | %U     | %O     |  %D    |
+| :---                        | :---                                                    | :---: | :---: | :---:  | :---:  | :---:  | 
+| Hsieh et al. (2017) \[[6]\] | LPN                                                     | 13.72 | 21.77 |  N/A   |  N/A   |  N/A   |
+| Aich et al. (2018) \[[7]\]  | GAP-224, patches                                        |  7.65 |  9.59 |  6.56% |  0.84% |  7.40% |
+| Aich et al. (2018) \[[7]\]  | GAP-Full, full images                                   | 19.61 | 21.65 | 18.71% |  0.24% | 18.95% |
+| Aich et al. (2018) \[[8]\]  | GSP-224, patches                                        |  5.46 |  8.09 |  4.14% |  1.14% |  5.28% |
+| Aich et al. (2018) \[[8]\]  | GSP-Full, full images                                   | 32.94 | 36.23 | 31.42% |  0.42% | 31.84% |
+| FCRN-A (our implementation) | FCRN-A, MSE loss, full images, 15 epochs                | 21.15 | 26.34 | 13.07% |  7.38% | 20.45% |
+| FCRN-A (our implementation) | FCRN-A, LogCosh loss, full images, 15 epochs            | 23.34 | 29.65 | 20.41% |  2.15% | 22.56% |
+| FCRN-A (our implementation) | FCRN-A, MSE loss, patches 32 * (128x128), 15 epochs     | 22.10 | 28.73 | 18.13% |  3.22% | 21.35% |
+| FCRN-A (our implementation) | FCRN-A, MSE loss, patches 32 * (128x128),  3 epochs     | 14.73 | 17.45 |  2.15% | 12.08% | 14.23% |
+| FCRN-A (our implementation) | FCRN-A, LogCosh loss, patches 32 * (128x128), 15 epochs | 26.19 | 31.63 | 23.81% |  1.50% | 25.31% | 
+| FCRN-A (our implementation) | FCRN-A, LogCosh loss, patches 32 * (128x128),  5 epochs | 12.13 | 15.72 |  5.62% |  6.10% | 11.72% |
 
 ### ShanghaiTech (Part B)
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on ShanghaiTech (Part B) dataset.
