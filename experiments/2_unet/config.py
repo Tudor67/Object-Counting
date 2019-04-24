@@ -1,7 +1,7 @@
 ### experiments ###
-ARCHITECTURE_NAME = 'FCRN_A'
-DATASET_NAME = 'carpk'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mae_patch_32_128x128_epochs_15'
+ARCHITECTURE_NAME = 'UNet'
+DATASET_NAME = 'vgg_cells'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_32_sigma_5_randseed_321_loss_mse_full_img'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -17,8 +17,8 @@ LOGS_PATH = f'./{SUB_EXPERIMENT_NAME}/logs/'
 LOGS_FILENAME = f'{LOGS_PATH}/logs.json'
 
 ### create validation split from initial train data ###
-VGG_CELLS_RAND_SEED = 645
-VGG_CELLS_N = 64 # num of train images for vgg_cells experiments
+VGG_CELLS_RAND_SEED = 321
+VGG_CELLS_N = 32 # num of train images for vgg_cells experiments
 VGG_CELLS_VAL_SIZE = 100 - VGG_CELLS_N
 CARPK_RAND_SEED = 9001
 CARPK_N = 900 # num of train images for carpk experiments
@@ -37,7 +37,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     VAL_SIZE = SHANGHAI_TECH_PART_B_VAL_SIZE
 
 ### train ###
-LOSS_NAME = 'mean_absolute_error'
+LOSS_NAME = 'mean_squared_error'
 
 IMG_DIM = None
 if DATASET_NAME.lower() == 'vgg_cells':
@@ -47,10 +47,10 @@ elif DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     IMG_DIM = (768, 1024, 3) # ShanghaiTech
         
-PATCH_DIM = (128, 128, 3)
-PATCHES_PER_IMAGE = 32
-BATCH_SIZE = 32
-EPOCHS = 15
+PATCH_DIM = IMG_DIM
+PATCHES_PER_IMAGE = 1
+BATCH_SIZE = 16
+EPOCHS = 100
 SHUFFLE = True
 
 ### ground truth ###
@@ -59,10 +59,18 @@ VGG_CELLS_SIGMA = 5
 CARPK_SIGMA = 10
 SHANGHAI_TECH_PART_B_SIGMA = 10
 
-GT_SIGMA = VGG_CELLS_SIGMA
-if DATASET_NAME.lower() == 'carpk':
+GT_SIGMA = None
+if DATASET_NAME.lower() == 'vgg_cells':
+    GT_SIGMA = VGG_CELLS_SIGMA
+elif DATASET_NAME.lower() == 'carpk':
     GT_SIGMA = CARPK_SIGMA
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     GT_SIGMA = SHANGHAI_TECH_PART_B_SIGMA
     
-DENSITY_MAP_MULTIPLICATION_FACTOR = 2000.
+DENSITY_MAP_MULTIPLICATION_FACTOR = None
+if DATASET_NAME.lower() == 'vgg_cells':
+    DENSITY_MAP_MULTIPLICATION_FACTOR = 100.
+elif DATASET_NAME.lower() == 'carpk':
+    DENSITY_MAP_MULTIPLICATION_FACTOR = 2000.
+elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
+    DENSITY_MAP_MULTIPLICATION_FACTOR = 2000.
