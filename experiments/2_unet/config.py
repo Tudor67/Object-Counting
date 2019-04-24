@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'UNet'
 DATASET_NAME = 'vgg_cells'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_32_sigma_5_randseed_321_loss_mse_full_img'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_64_sigma_5_randseed_645_loss_mse_full_img'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -17,8 +17,8 @@ LOGS_PATH = f'./{SUB_EXPERIMENT_NAME}/logs/'
 LOGS_FILENAME = f'{LOGS_PATH}/logs.json'
 
 ### create validation split from initial train data ###
-VGG_CELLS_RAND_SEED = 321
-VGG_CELLS_N = 32 # num of train images for vgg_cells experiments
+VGG_CELLS_RAND_SEED = 645
+VGG_CELLS_N = 64 # num of train images for vgg_cells experiments
 VGG_CELLS_VAL_SIZE = 100 - VGG_CELLS_N
 CARPK_RAND_SEED = 9001
 CARPK_N = 900 # num of train images for carpk experiments
