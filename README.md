@@ -86,7 +86,7 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5/20 epochs                  | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
 |`FCRN-A (our implementation)`     |`FCRN-A, LogCosh loss, full images, 24/30 epochs`            |`19.95`|`33.94`|`11.70%`| `4.43%`|`16.13%`|
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, patches 32 * (128x128), 54/100 epochs     | 21.49 | 34.98 |  9.33% |  8.04% | 17.37% |
-| FCRN-A (our implementation)      | FCRN-A, LogCosh loss, patches 32 * (128x128), 54/100 epochs | 20.81 | 38.11 | 15.44% |  1.38% | 16.82% |
+| FCRN-A (our implementation)      | FCRN-A, LogCosh loss, patches 32 * (128x128), 86/100 epochs | 20.81 | 38.11 | 15.44% |  1.38% | 16.82% |
 
 ## Qualitative results
 ![fcrn_a_vgg_cells_qualitative_results](./images/fcrn_a_vgg_cells_qualitative_results_full_and_patches.png)  
