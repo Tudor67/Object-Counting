@@ -1,0 +1,4 @@
+Architecture_Name,Experiment_Name,Dataset_Name,Dataset_Split,MAE,RMSE,Underestimate,Overestimate,Difference
+UNet,vgg_cells/n_32_sigma_5_randseed_323_loss_logcosh_patch_4_128x128,vgg_cells,train,3.714,4.372,0.596%,1.372%,1.968%
+UNet,vgg_cells/n_32_sigma_5_randseed_323_loss_logcosh_patch_4_128x128,vgg_cells,val,4.088,5.023,1.130%,1.185%,2.315%
+UNet,vgg_cells/n_32_sigma_5_randseed_323_loss_logcosh_patch_4_128x128,vgg_cells,test,4.138,5.086,0.994%,1.419%,2.413%
