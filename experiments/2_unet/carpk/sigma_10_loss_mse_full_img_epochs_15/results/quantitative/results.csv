@@ -1,0 +1,4 @@
+Architecture_Name,Experiment_Name,Dataset_Name,Dataset_Split,MAE,RMSE,Underestimate,Overestimate,Difference
+UNet,carpk/sigma_10_loss_mse_full_img_epochs_15,carpk,train,3.115,4.039,1.483%,5.840%,7.323%
+UNet,carpk/sigma_10_loss_mse_full_img_epochs_15,carpk,val,3.426,4.432,1.921%,5.719%,7.639%
+UNet,carpk/sigma_10_loss_mse_full_img_epochs_15,carpk,test,17.91,22.749,6.117%,11.190%,17.307%

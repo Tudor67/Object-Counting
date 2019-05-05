@@ -26,3 +26,15 @@
 * Our implementation does not include data preprocessing and augmentation;
 * Standard deviation corresponds to 5 different draws of training and validation sets;
 * Counts per image: 174 ± 64.
+
+## CARPK Dataset
+| Method                       | Loss    | Epochs | MAE   | RMSE  | %U      | %O     |  %D    |
+| :---                         | :---:   | :---:  | :---: | :---: | :---:   | :---:  | :---:  | 
+| U-Net, full images           | MSE     | 13/15  | 17.91 | 22.75 |  6.12%  | 11.19% | 17.31% |
+
+* U-Net trained with full images (MSE loss, 15 epochs) overfits the train set:
+
+| Details               | Split | Loss  | Epochs | MAE    | RMSE  |
+| :---                  | :---: | :---: | :---:  | :---:  | :---: |
+| full images           | train | MSE   | 13/15  |  3.12  |  4.04 |
+| full images           | test  | MSE   | 13/15  | 17.91  | 22.75 |

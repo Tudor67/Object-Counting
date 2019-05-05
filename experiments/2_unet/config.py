@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'UNet'
-DATASET_NAME = 'vgg_cells'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_64_sigma_5_randseed_645_loss_logcosh_patch_4_128x128'
+DATASET_NAME = 'carpk'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mse_full_img_epochs_15'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -37,7 +37,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     VAL_SIZE = SHANGHAI_TECH_PART_B_VAL_SIZE
 
 ### train ###
-LOSS_NAME = 'logcosh'
+LOSS_NAME = 'mean_squared_error'
 
 IMG_DIM = None
 if DATASET_NAME.lower() == 'vgg_cells':
@@ -47,10 +47,10 @@ elif DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     IMG_DIM = (768, 1024, 3) # ShanghaiTech
         
-PATCH_DIM = (128, 128, 3)
-PATCHES_PER_IMAGE = 4
-BATCH_SIZE = 16
-EPOCHS = 100
+PATCH_DIM = IMG_DIM
+PATCHES_PER_IMAGE = 1
+BATCH_SIZE = 1
+EPOCHS = 15
 SHUFFLE = True
 
 ### ground truth ###
