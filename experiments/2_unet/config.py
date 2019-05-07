@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'UNet'
 DATASET_NAME = 'carpk'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_15'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_10'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -50,7 +50,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
 PATCH_DIM = IMG_DIM
 PATCHES_PER_IMAGE = 1
 BATCH_SIZE = 1
-EPOCHS = 15
+EPOCHS = 10
 SHUFFLE = True
 
 ### ground truth ###
