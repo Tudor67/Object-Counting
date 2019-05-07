@@ -31,6 +31,7 @@
 | Method                       | Loss    | Epochs | MAE   | RMSE  | %U      | %O     |  %D    |
 | :---                         | :---:   | :---:  | :---: | :---: | :---:   | :---:  | :---:  | 
 | U-Net, full images           | MSE     | 13/15  | 17.91 | 22.75 |  6.12%  | 11.19% | 17.31% |
+| U-Net, full images           | LogCosh | 12/15  | 18.44 | 23.68 | 14.28%  |  3.54% | 17.82% |
 ___
 * U-Net trained with full images (MSE loss) overfits the train set:
 
