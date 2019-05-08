@@ -28,10 +28,13 @@
 * Counts per image: 174 ± 64.
 
 ## CARPK Dataset
-| Method                       | Loss    | Epochs | MAE   | RMSE  | %U      | %O     |  %D    |
-| :---                         | :---:   | :---:  | :---: | :---: | :---:   | :---:  | :---:  | 
-| U-Net, full images           | MSE     | 13/15  | 17.91 | 22.75 |  6.12%  | 11.19% | 17.31% |
-| U-Net, full images           | LogCosh | 12/15  | 18.44 | 23.68 | 14.28%  |  3.54% | 17.82% |
+| Method                        | Loss    | Epochs | MAE   | RMSE  | %U      | %O     |  %D    |
+| :---                          | :---:   | :---:  | :---: | :---: | :---:   | :---:  | :---:  | 
+| U-Net, full images            | MSE     | 13/15  | 17.91 | 22.75 |  6.12%  | 11.19% | 17.31% |
+| U-Net, full images            | LogCosh | 12/15  | 18.44 | 23.68 | 14.28%  |  3.54% | 17.82% |
+| U-Net, patches 32 * (128x128) | MSE     | 14/15  | 36.29 | 40.59 | 34.21%  |  0.86% | 35.07% |
+
+* Batch size: 1 (full images) / 32 (patches 128x128)
 ___
 * U-Net trained with full images (MSE loss) overfits the train set:
 
