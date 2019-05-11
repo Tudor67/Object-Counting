@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'UNet'
 DATASET_NAME = 'shanghai_tech/part_b'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mse_full_img_epochs_50'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_50'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -37,7 +37,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     VAL_SIZE = SHANGHAI_TECH_PART_B_VAL_SIZE
 
 ### train ###
-LOSS_NAME = 'mean_squared_error'
+LOSS_NAME = 'logcosh'
 
 IMG_DIM = None
 if DATASET_NAME.lower() == 'vgg_cells':
