@@ -113,3 +113,21 @@ ___
 |   15   |  3.04  |  4.40 |
 |   15   | 26.67  | 30.91 |
 ___
+
+## ShanghaiTech (Part B) Dataset
+| Method                        | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |
+| :---                          | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
+| U-Net, full images            | MSE     | 47/50  | 24.85  | 39.06  | 18.83%  |  1.26% | 20.09%  |
+| U-Net, full images            | MSE     |  x/100 | | | | |  |
+| U-Net, full images            | LogCosh |  x/50  | | | | |  |
+| U-Net, full images            | LogCosh |  x/100 | | | | |  |
+| U-Net, patches 32 * (128x128) | MSE     |  x/100 | | | | |  |
+| U-Net, patches 32 * (128x128) | LogCosh |  x/100 | | | | |  |
+
+* U-Net trained with 32 * (128x128) patches (MSE loss):
+
+| Epochs | Split | MAE   | RMSE  | %U     | %O     | %D     |
+| :---:  | :---: | :---: | :---: | :---:  | :---:  | :---:  |
+|  1   | train | | | | | |
+|  1   | test  | | | | | |
+

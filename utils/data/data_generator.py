@@ -8,13 +8,18 @@ class DataGenerator(keras.utils.Sequence):
                  dim=(256, 256, 3),
                  batch_size=32, patches_per_image=1,
                  density_map_multiplication_factor=100., 
-                 shuffle=True):
+                 shuffle=True,
+                 ignored_images=[]):
         
         path = f'{dataset_path}/{dataset_split}'
         img_path = f'{path}/images'
         density_map_path = f'{path}/gt_density_maps'
         img_names = sorted(os.listdir(img_path))
         density_map_names = sorted(os.listdir(density_map_path))
+        
+        for img_name in ignored_images:
+            img_names.remove(f'{img_name}.jpg')
+            density_map_names.remove(f'{img_name}.npy')
         
         self.dataset_split = dataset_split
         self.path = path
@@ -48,12 +53,12 @@ class DataGenerator(keras.utils.Sequence):
             img = skimage.io.imread(f'{self.img_path}/{img_name}') / 255.
             density_map = np.load(f'{self.density_map_path}/{density_map_name}')[..., None] *\
                           self.density_map_multiplication_factor
-                
+
             for j in range(self.patches_per_image):
                 # top-left coordinates of patches
                 row = np.random.randint(img.shape[0] + 1 - self.dim[0])
                 col = np.random.randint(img.shape[1] + 1 - self.dim[1])
-                
+
                 X[i * self.patches_per_image + j] = img[row:row+self.dim[0], col:col+self.dim[1], :].copy()
                 y[i * self.patches_per_image + j] = density_map[row:row+self.dim[0], col:col+self.dim[1], :].copy()
         return X, y
