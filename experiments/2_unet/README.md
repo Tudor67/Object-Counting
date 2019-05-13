@@ -119,8 +119,9 @@ ___
 | :---                          | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
 | U-Net, full images            | MSE     | 47/50  | 24.85  | 39.06  | 18.83%  |  1.26% | 20.09%  |
 | U-Net, full images            | LogCosh | 31/50  | 19.68  | 35.41  | 14.00%  |  1.92% | 15.91%  |
-| U-Net, patches 32 * (128x128) | MSE     |  x/100 | | | | |  |
-| U-Net, patches 32 * (128x128) | LogCosh |  x/100 | | | | |  |
+| U-Net, patches 32 * (128x128) | MSE     | 50/50  | 25.02  | 44.79  | 16.99%  |  3.24% | 20.23%  |
+| U-Net, patches 32 * (128x128) | LogCosh | x/100  | | | | | |
+|
 
 * U-Net trained with 32 * (128x128) patches (MSE loss):
 
