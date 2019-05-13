@@ -42,10 +42,16 @@ Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells
 |__Cohen et al. (2017)__\[[5]\]         |__Count-ception__                          |__2.4 ± 0.4__|__N/A__  |
 | FCRN-A (our implementation)           | FCRN-A, MSE loss, full images             | 6.0 ± 1.7 | 5.4 ± 1.7 |
 | FCRN-A (our implementation)           | FCRN-A, MAE loss, full images             | 8.3 ± 2.7 | 6.6 ± 1.8 |
-|`FCRN-A (our implementation)`          |`FCRN-A, LogCosh loss, full images`        |`8.3 ± 1.8`|`3.6 ± 0.3`|
+| FCRN-A (our implementation)           | FCRN-A, LogCosh loss, full images         | 8.3 ± 1.8 | 3.6 ± 0.3 |
 | FCRN-A (our implementation)           | FCRN-A, MSE loss, patches 4*(128x128)     | 5.5 ± 0.5 | 3.9 ± 1.1 |
 | FCRN-A (our implementation)           | FCRN-A, MAE loss, patches 4*(128x128)     | 6.2 ± 1.8 | 7.4 ± 1.0 |
 | FCRN-A (our implementation)           | FCRN-A, LogCosh loss, patches 4*(128x128) | 5.0 ± 1.8 | 4.0 ± 0.9 |
+| U-Net (our implementation)            | U-Net, MSE loss, full images              | 4.0 ± 0.8 | 3.5 ± 0.4 |
+| U-Net (our implementation)            | U-Net, MAE loss, full images              | 6.8 ± 2.0 | 5.5 ± 1.5 |
+| U-Net (our implementation)            | U-Net, LogCosh loss, full images          | 4.9 ± 1.0 | 3.4 ± 0.3 |
+|`U-Net (our implementation)`           |`U-Net, MSE loss, patches 4*(128x128)`     |`4.4 ± 0.9`|`3.2 ± 0.1`|
+| U-Net (our implementation)            | U-Net, MAE loss, patches 4*(128x128)      | 6.6 ± 1.4 | 6.8 ± 0.9 |
+| U-Net (our implementation)            | U-Net, LogCosh loss, patches 4*(128x128)  | 5.5 ± 1.5 | 3.2 ± 0.4 |
 
 * N - number of train images;
 * Our implementation does not include data preprocessing and augmentation;
@@ -70,6 +76,11 @@ MAE, RMSE, %U, %O for LPN, GAP and GSP are taken from Aich et al. (2018) \[[8]\]
 | FCRN-A (our implementation) | FCRN-A, MSE loss, patches 32 * (128x128),  3 epochs     | 14.73 | 17.45 |  2.15% | 12.08% | 14.23% |
 | FCRN-A (our implementation) | FCRN-A, LogCosh loss, patches 32 * (128x128), 15 epochs | 26.19 | 31.63 | 23.81% |  1.50% | 25.31% | 
 |`FCRN-A (our implementation)`|`FCRN-A, LogCosh loss, patches 32 * (128x128),  5 epochs`|`12.13`|`15.72`| `5.62%`| `6.10%`|`11.72%`|
+| U-Net (our implementation)  | U-Net, MSE loss, full images, 13/15 epochs              | 17.91 | 22.75 |  6.12% | 11.19% | 17.31% |
+| U-Net (our implementation)  | U-Net, LogCosh loss, full images, 12/15 epochs          | 18.44 | 23.68 | 14.28% |  3.54% | 17.82% |
+| U-Net (our implementation)  | U-Net, MSE loss, patches 32 * (128x128), 14/15 epochs   | 36.29 | 40.59 | 34.21% |  0.86% | 35.07% |
+| U-Net (out implementation)  | U-Net, LogCosh loss, patches 32 * (128x128), 15/15 epochs| 26.67| 30.91 | 25.18% |  0.59% | 25.77% |
+| U-Net (out implementation)  | U-Net, LogCosh loss, patches 32 * (128x128), 3/3 epochs | 14.03 | 16.49 |  4.72% |  8.83% | 13.55% |
 
 ### ShanghaiTech (Part B)
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on ShanghaiTech (Part B) dataset.
@@ -84,11 +95,15 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 | Ranjan et al. (2018) \[[13]\]    | ic-CNN (two stages)                                         | 10.7  | 16.00 | N/A    | N/A    | N/A    |
 | Olmschenk et al. (2019) \[[14]\] | MUD-i1NN                                                    | 14.4  | 20.0  | N/A    | N/A    | N/A    |
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5/20 epochs                  | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
-|`FCRN-A (our implementation)`     |`FCRN-A, LogCosh loss, full images, 24/30 epochs`            |`19.95`|`33.94`|`11.70%`| `4.43%`|`16.13%`|
+| FCRN-A (our implementation)      | FCRN-A, LogCosh loss, full images, 24/30 epochs             | 19.95 | 33.94 | 11.70% |  4.43% | 16.13% |
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, patches 32 * (128x128), 54/100 epochs     | 21.49 | 34.98 |  9.33% |  8.04% | 17.37% |
 | FCRN-A (our implementation)      | FCRN-A, LogCosh loss, patches 32 * (128x128), 86/100 epochs | 20.81 | 38.11 | 15.44% |  1.38% | 16.82% |
+| U-Net (our implementation)       | U-Net, MSE loss, full images, 47/50 epochs                  | 24.85 | 39.06 | 18.83% |  1.26% | 20.09% |
+|`U-Net (our implementation)`      |`U-Net, LogCosh loss, full images, 31/50 epochs`             |`19.68`|`35.41`|`14.00%`| `1.92%`|`15.92%`|
+| U-Net (our implementation)       | U-Net, MSE loss, patches 32 * (128x128), 50/50 epochs       | 25.02 | 44.79 | 16.99% |  3.24% | 20.23% |
+| U-Net (our implementation)       | U-Net, LogCosh loss, patches 32 * (128x128), 50/50 epochs   | 27.72 | 45.63 | 22.08% |  0.33% | 22.41% |
 
-## Qualitative results
+## Qualitative results (1_FCRN-A, MSE loss)
 ![fcrn_a_vgg_cells_qualitative_results](./images/fcrn_a_vgg_cells_qualitative_results_full_and_patches.png)  
 ![fcrn_a_carpk_qualitative_results](./images/fcrn_a_carpk_qualitative_results_full_and_patches.png)  
 ![fcrn_a_shanghai_tech_b_qualitative_results](./images/fcrn_a_shanghai_tech_b_qualitative_results_full_and_patches.png)  
