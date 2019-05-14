@@ -77,3 +77,171 @@ def plot_gt_vs_pred_counts(gt_counts, pred_counts, split_name, new_figure=True,
     else:
         plt.xlabel('images (asc order of gt counts)')
     plt.legend()
+    
+def plot_aug16(aug_list):
+    img, mask = aug_list[0]
+    img_hf, mask_hf = aug_list[1]
+    img_vf, mask_vf = aug_list[2]
+    img_hf_vf, mask_hf_vf = aug_list[3]
+    img_t, mask_t = aug_list[4]
+    img_t_hf, mask_t_hf = aug_list[5]
+    img_t_vf, mask_t_vf = aug_list[6]
+    img_t_hf_vf, mask_t_hf_vf = aug_list[7]
+    
+    img_rgb, mask_rgb = aug_list[8]
+    img_hf_rgb, mask_hf_rgb = aug_list[9]
+    img_vf_rgb, mask_vf_rgb = aug_list[10]
+    img_hf_vf_rgb, mask_hf_vf_rgb = aug_list[11]
+    img_t_rgb, mask_t_rgb = aug_list[12]
+    img_t_hf_rgb, mask_t_hf_rgb = aug_list[13]
+    img_t_vf_rgb, mask_t_vf_rgb = aug_list[14]
+    img_t_hf_vf_rgb, mask_t_hf_vf_rgb = aug_list[15]
+    
+    num = 8
+    plt.figure(figsize=(20, 5))
+    
+    plt.subplot(2, num, 1)
+    plt.title('Original', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img)
+    
+    plt.subplot(2, num, num + 1)
+    plt.axis('off')
+    plt.imshow(mask, cmap='jet')
+    
+    plt.subplot(2, num, 2)
+    plt.title('HFlip', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_hf)
+    
+    plt.subplot(2, num, num + 2)
+    plt.axis('off')
+    plt.imshow(mask_hf, cmap='jet')
+    
+    plt.subplot(2, num, 3)
+    plt.title('VFlip', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_vf)
+    
+    plt.subplot(2, num, num + 3)
+    plt.axis('off')
+    plt.imshow(mask_vf, cmap='jet')
+    
+    plt.subplot(2, num, 4)
+    plt.title('HFlip + VFlip', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_hf_vf)
+    
+    plt.subplot(2, num, num + 4)
+    plt.axis('off')
+    plt.imshow(mask_hf_vf, cmap='jet')
+    
+    plt.subplot(2, num, 5)
+    plt.title('T', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t)
+    
+    plt.subplot(2, num, num + 5)
+    plt.axis('off')
+    plt.imshow(mask_t, cmap='jet')
+    
+    plt.subplot(2, num, 6)
+    plt.title('T + HFlip', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t_hf)
+    
+    plt.subplot(2, num, num + 6)
+    plt.axis('off')
+    plt.imshow(mask_t_hf, cmap='jet')
+    
+    plt.subplot(2, num, 7)
+    plt.title('T + VFlip', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t_vf)
+    
+    plt.subplot(2, num, num + 7)
+    plt.axis('off')
+    plt.imshow(mask_t_vf, cmap='jet')
+    
+    plt.subplot(2, num, 8)
+    plt.title('T + HFlip + VFlip', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t_hf_vf)
+    
+    plt.subplot(2, num, num + 8)
+    plt.axis('off')
+    plt.imshow(mask_t_hf_vf, cmap='jet')
+    
+    
+    plt.figure(figsize=(20, 5))
+    plt.subplot(2, num, 1)
+    plt.title('RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_rgb)
+    
+    plt.subplot(2, num, num + 1)
+    plt.axis('off')
+    plt.imshow(mask_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 2)
+    plt.title('HFlip + RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_hf_rgb)
+    
+    plt.subplot(2, num, num + 2)
+    plt.axis('off')
+    plt.imshow(mask_hf_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 3)
+    plt.title('VFlip + RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_vf_rgb)
+    
+    plt.subplot(2, num, num + 3)
+    plt.axis('off')
+    plt.imshow(mask_vf_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 4)
+    plt.title('HFlip + VFlip + RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_hf_vf_rgb)
+    
+    plt.subplot(2, num, num + 4)
+    plt.axis('off')
+    plt.imshow(mask_hf_vf_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 5)
+    plt.title('T + RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t_rgb)
+    
+    plt.subplot(2, num, num + 5)
+    plt.axis('off')
+    plt.imshow(mask_t_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 6)
+    plt.title('T + HFlip + RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t_hf_rgb)
+    
+    plt.subplot(2, num, num + 6)
+    plt.axis('off')
+    plt.imshow(mask_t_hf_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 7)
+    plt.title('T + VFlip + RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t_vf_rgb)
+    
+    plt.subplot(2, num, num + 7)
+    plt.axis('off')
+    plt.imshow(mask_t_vf_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 8)
+    plt.title('T + HFlip + VFlip + RGBShift', fontsize=8.2)
+    plt.axis('off')
+    plt.imshow(img_t_hf_vf_rgb)
+    
+    plt.subplot(2, num, num + 8)
+    plt.axis('off')
+    plt.imshow(mask_t_hf_vf_rgb, cmap='jet')
