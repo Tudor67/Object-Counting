@@ -9,11 +9,16 @@ class DataGenerator(keras.utils.Sequence):
                  batch_size=32, patches_per_image=1,
                  density_map_multiplication_factor=100., 
                  shuffle=True,
-                 ignored_images=[]):
+                 ignored_images=[],
+                 data_augmentation=False):
         
         path = f'{dataset_path}/{dataset_split}'
         img_path = f'{path}/images'
         density_map_path = f'{path}/gt_density_maps'
+        if data_augmentation:
+            img_path += '_aug'
+            density_map_path += '_aug'
+            
         img_names = sorted(os.listdir(img_path))
         density_map_names = sorted(os.listdir(density_map_path))
         
