@@ -1,0 +1,4 @@
+Architecture_Name,Experiment_Name,Dataset_Name,Dataset_Split,MAE,RMSE,Underestimate,Overestimate,Difference
+FCRN_A,vgg_cells/n_64_sigma_5_randseed_643_loss_logcosh_full_img,vgg_cells,train,2.533,3.313,0.224%,1.157%,1.380%
+FCRN_A,vgg_cells/n_64_sigma_5_randseed_643_loss_logcosh_full_img,vgg_cells,val,3.391,4.096,0.454%,1.483%,1.937%
+FCRN_A,vgg_cells/n_64_sigma_5_randseed_643_loss_logcosh_full_img,vgg_cells,test,2.596,3.353,0.330%,1.184%,1.514%
