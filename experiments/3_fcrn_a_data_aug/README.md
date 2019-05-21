@@ -7,10 +7,12 @@
 ## VGG Cells Dataset
 | Method                        | Loss    | Epochs | N     | MAE       | RMSE       | %U          | %O          | %D          |
 | :---                          | :---:   | :---:  | :---: | :---:     | :---:      | :---:       | :---:       | :---:       |
-| FCRN-A, full images           | MSE     | ~100   | 32    | 3.2 ± 0.3 | 4.1 ± 0.4  | 1.5% ± 0.3% | 0.4% ± 0.2% | 1.9% ± 0.1% |
-| FCRN-A, full images           | MSE     | ~100   | 64    | 2.8 ± 0.3 | 3.6 ± 0.4  | 0.8% ± 0.4% | 0.7% ± 0.3% | 1.6% ± 0.2% |
-| FCRN-A, full images           | LogCosh | ~100   | 32    | 3.1 ± 0.3 | 4.0 ± 0.4  | 1.2% ± 0.3% | 0.7% ± 0.3% | 1.8% ± 0.2% |
-| FCRN-A, full images           | LogCosh | ~100   | 64    | 3.1 ± 0.3 | 4.1 ± 0.4  | 1.1% ± 0.5% | 0.7% ± 0.4% | 1.8% ± 0.2% |
+| FCRN-A, full images           | MSE     | ~50    | 32    | 3.2 ± 0.3 | 4.1 ± 0.4  | 1.5% ± 0.3% | 0.4% ± 0.2% | 1.9% ± 0.1% |
+| FCRN-A, full images           | MSE     | ~50    | 64    | 2.8 ± 0.3 | 3.6 ± 0.4  | 0.8% ± 0.4% | 0.7% ± 0.3% | 1.6% ± 0.2% |
+| FCRN-A, full images           | LogCosh | ~50    | 32    | 3.1 ± 0.3 | 4.0 ± 0.4  | 1.2% ± 0.3% | 0.7% ± 0.3% | 1.8% ± 0.2% |
+| FCRN-A, full images           | LogCosh | ~50    | 64    | 3.1 ± 0.3 | 4.1 ± 0.4  | 1.1% ± 0.5% | 0.7% ± 0.4% | 1.8% ± 0.2% |
+| FCRN-A, patches 4 * (128x128) | MSE     | ~50    | 32    | 2.8 ± 0.3 | 3.8 ± 0.4  | 1.3% ± 0.3% | 0.4% ± 0.2% | 1.7% ± 0.2% |
+| FCRN-A, patches 4 * (128x128) | MSE     | ~50    | 64    | 2.7 ± 0.5 | 3.6 ± 0.7  | 1.0% ± 0.5% | 0.5% ± 0.3% | 1.6% ± 0.3% |
 
 * N - number of train images;
 * Our implementation includes data augmentation (augment16: flip, transpose, rgbshift and other combinations);
