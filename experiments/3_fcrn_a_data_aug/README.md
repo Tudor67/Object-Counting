@@ -13,6 +13,8 @@
 | FCRN-A, full images           | LogCosh | ~50    | 64    | 3.1 ± 0.3 | 4.1 ± 0.4  | 1.1% ± 0.5% | 0.7% ± 0.4% | 1.8% ± 0.2% |
 | FCRN-A, patches 4 * (128x128) | MSE     | ~50    | 32    | 2.8 ± 0.3 | 3.8 ± 0.4  | 1.3% ± 0.3% | 0.4% ± 0.2% | 1.7% ± 0.2% |
 | FCRN-A, patches 4 * (128x128) | MSE     | ~50    | 64    | 2.7 ± 0.5 | 3.6 ± 0.7  | 1.0% ± 0.5% | 0.5% ± 0.3% | 1.6% ± 0.3% |
+| FCRN-A, patches 4 * (128x128) | LogCosh | ~50    | 32    | 3.0 ± 0.3 | 4.0 ± 0.3  | 1.0% ± 0.6% | 0.7% ± 0.5% | 1.8% ± 0.1% |
+|`FCRN-A, patches 4 * (128x128)`|`LogCosh`|`~50`   |`64`   |`2.7 ± 0.5`|`3.6 ± 0.6` |`1.0% ± 0.4%`|`0.5% ± 0.3%`|`1.6% ± 0.3%`|
 
 * N - number of train images;
 * Our implementation includes data augmentation (augment16: flip, transpose, rgbshift and other combinations);
