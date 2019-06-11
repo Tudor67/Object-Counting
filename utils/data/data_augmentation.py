@@ -64,6 +64,7 @@ def augment16_and_save(image, mask, save_path, image_name, rseed):
         np.save(f'{save_path}/gt_density_maps_aug/{image_name}_{idx:2}.npy'.replace(' ', '0'), mask)
         
 def augment16_from_dir_and_save(in_path, save_path, rseed=None):
+    random.seed(rseed)
     images_aug_path = f'{save_path}/images_aug'
     gt_density_maps_aug_path = f'{save_path}/gt_density_maps_aug'
     shutil.rmtree(images_aug_path, ignore_errors=True)
@@ -77,4 +78,4 @@ def augment16_from_dir_and_save(in_path, save_path, rseed=None):
         img_name = img_name_png.split('.')[0]
         image = skimage.io.imread(f'{in_path}/images/{img_name_png}') / 255.
         mask = np.load(f'{in_path}/gt_density_maps/{img_name}.npy')
-        augment16_and_save(image, mask, save_path, img_name, rseed)
+        augment16_and_save(image, mask, save_path, img_name, random.randint(0, 543210))

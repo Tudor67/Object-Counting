@@ -19,4 +19,12 @@
 * N - number of train images;
 * Our implementation includes data augmentation (augment16: flip, transpose, rgbshift and other combinations);
 * Standard deviation corresponds to 5 different draws of training and validation sets;
-* Counts per image: 174 ± 64.
+* Counts per image: 174 ± 64;
+* Optimizer: Adam(lr=1e-3).
+
+## CARPK Dataset
+| Method                        | Loss    | Epochs | MAE   | RMSE   | %U     | %O     |  %D    |
+| :---                          | :---:   | :---:  | :---: | :---:  | :---:  | :---:  | :---:  | 
+|`FCRN-A, full images`          |`MSE`    | `8/10` |`10.41`|`12.99` | `8.52%`| `1.54%`|`10.06%`|
+
+* Optimizer: Adam(lr=1e-4).

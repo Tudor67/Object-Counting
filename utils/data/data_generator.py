@@ -2,6 +2,7 @@ import keras
 import numpy as np
 import os
 import skimage.io
+import matplotlib.pyplot as plt
 
 class DataGenerator(keras.utils.Sequence):
     def __init__(self, dataset_path, dataset_split='train',
@@ -48,8 +49,8 @@ class DataGenerator(keras.utils.Sequence):
             np.random.shuffle(self.indexes)
         
     def __data_generation__(self, img_ids_list):
-        X = np.empty((self.batch_size, *self.dim))
-        y = np.empty((self.batch_size, *self.dim[:2], 1))
+        X = self.batch_size * [None] #np.empty((self.batch_size, *self.dim))
+        y = self.batch_size * [None] #np.empty((self.batch_size, *self.dim[:2], 1))
         
         for i, img_idx in enumerate(img_ids_list):
             img_name = self.img_names[img_idx]
@@ -58,15 +59,20 @@ class DataGenerator(keras.utils.Sequence):
             img = skimage.io.imread(f'{self.img_path}/{img_name}') / 255.
             density_map = np.load(f'{self.density_map_path}/{density_map_name}')[..., None] *\
                           self.density_map_multiplication_factor
-
+            
             for j in range(self.patches_per_image):
                 # top-left coordinates of patches
-                row = np.random.randint(img.shape[0] + 1 - self.dim[0])
-                col = np.random.randint(img.shape[1] + 1 - self.dim[1])
+                dim_0, dim_1 = self.dim[:2]
+                if (dim_0 > img.shape[0]) or (dim_1 > img.shape[1]):
+                    # (rows,cols,ch) -> (cols, rows,ch) (data augmentation: transpose operation)
+                    dim_0, dim_1 = dim_1, dim_0
+                    
+                row = np.random.randint(img.shape[0] + 1 - dim_0)
+                col = np.random.randint(img.shape[1] + 1 - dim_1)
 
-                X[i * self.patches_per_image + j] = img[row:row+self.dim[0], col:col+self.dim[1], :].copy()
-                y[i * self.patches_per_image + j] = density_map[row:row+self.dim[0], col:col+self.dim[1], :].copy()
-        return X, y
+                X[i * self.patches_per_image + j] = img[row:row+dim_0, col:col+dim_1, :].copy()
+                y[i * self.patches_per_image + j] = density_map[row:row+dim_0, col:col+dim_1, :].copy()
+        return np.asarray(X), np.asarray(y)
     
     def __getitem__(self, index):
         # generate one batch of data
