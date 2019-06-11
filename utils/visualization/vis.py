@@ -71,11 +71,11 @@ def plot_gt_vs_pred_counts(gt_counts, pred_counts, split_name, new_figure=True,
     plt.title(f'GT vs Predicted counts ({split_name} set: {len(gt_counts)} images)')
     plt.plot(gt_counts[sorted_indices], color='green', label='GT counts')
     plt.plot(pred_counts[sorted_indices], label='Predicted counts')
-    plt.ylabel('counts')
+    plt.ylabel('Counts')
     if criterion == 'gt-pred':
-        plt.xlabel('images (asc order of count difference)')
+        plt.xlabel('Image indices (ascending order of count difference)')
     else:
-        plt.xlabel('images (asc order of gt counts)')
+        plt.xlabel('Image indices (ascending order of ground truth counts)')
     plt.legend()
     
 def plot_aug16(aug_list):

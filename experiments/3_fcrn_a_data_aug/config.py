@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
 DATASET_NAME = 'carpk'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mse_full_img_epochs_10_lr_1e-4'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mse_patch_16_256x256_epochs_5_lr_1e-4'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -48,10 +48,10 @@ elif DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     IMG_DIM = (768, 1024, 3) # ShanghaiTech
         
-PATCH_DIM = IMG_DIM
-PATCHES_PER_IMAGE = 1
-BATCH_SIZE = 1
-EPOCHS = 10
+PATCH_DIM = (256, 256, 3)
+PATCHES_PER_IMAGE = 16
+BATCH_SIZE = 16
+EPOCHS = 5
 SHUFFLE = True
 
 ### ground truth ###
