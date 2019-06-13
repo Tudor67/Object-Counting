@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
-DATASET_NAME = 'carpk'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_10_lr_1e-4'
+DATASET_NAME = 'shanghai_tech/part_b'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mse_full_img_epochs_5_lr_1e-4'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -10,7 +10,7 @@ TRAIN_GT_COUNT_PATH = f'{TRAIN_PATH}/gt_counts'
 VAL_GT_COUNT_PATH = f'{VAL_PATH}/gt_counts'
 TEST_GT_COUNT_PATH = f'{TEST_PATH}/gt_counts'
 CHECKPOINTS_PATH = f'./{SUB_EXPERIMENT_NAME}/checkpoints'
-CHECKPOINT_FILENAME = f'{CHECKPOINTS_PATH}/' + 'model.{epoch:02d}-{val_loss:.2f}.hdf5'
+CHECKPOINT_FILENAME = f'{CHECKPOINTS_PATH}/' + 'model.{epoch:02d}-{val_loss:.3f}.hdf5'
 #QUALITATIVE_RESULTS_PATH = f'./{SUB_EXPERIMENT_NAME}/results/qualitative'
 #QUANTITATIVE_RESULTS_PATH = './{SUB_EXPERIMENT_NAME}/results/quantitative_epoch_{epoch:02d}'
 LOGS_PATH = f'./{SUB_EXPERIMENT_NAME}/logs/'
@@ -37,7 +37,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     VAL_SIZE = SHANGHAI_TECH_PART_B_VAL_SIZE
 
 ### train ###
-LOSS_NAME = 'logcosh'
+LOSS_NAME = 'mean_squared_error'
 LEARNING_RATE = 1e-4
 
 IMG_DIM = None
@@ -51,7 +51,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
 PATCH_DIM = IMG_DIM
 PATCHES_PER_IMAGE = 1
 BATCH_SIZE = 1
-EPOCHS = 10
+EPOCHS = 5
 SHUFFLE = True
 
 ### ground truth ###
@@ -79,4 +79,4 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
 # ignore some train images with ground truth inconsistencies #
 IGNORED_IMAGES = []
 if DATASET_NAME.lower() == 'shanghai_tech/part_b':
-    IGNORED_IMAGES = ['IMG_108']
+    IGNORED_IMAGES = ['IMG_108_00', 'IMG_108_01', 'IMG_108_02', 'IMG_108_03']

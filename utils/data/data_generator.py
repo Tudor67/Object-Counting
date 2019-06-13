@@ -22,9 +22,10 @@ class DataGenerator(keras.utils.Sequence):
             
         img_names = sorted(os.listdir(img_path))
         density_map_names = sorted(os.listdir(density_map_path))
+        ext = img_names[0].split('.')[-1]
         
         for img_name in ignored_images:
-            img_names.remove(f'{img_name}.jpg')
+            img_names.remove(f'{img_name}.{ext}')
             density_map_names.remove(f'{img_name}.npy')
         
         self.dataset_split = dataset_split
