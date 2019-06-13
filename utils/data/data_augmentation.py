@@ -5,6 +5,15 @@ import random
 import shutil
 import skimage.io
 
+def hflip(image, mask):
+    aug_list = [[image, mask]]
+    
+    augmented = A.HorizontalFlip(p=1)(image=image, mask=mask)
+    image_hf, mask_hf = augmented['image'], augmented['mask']
+    aug_list.append([image_hf, mask_hf])
+    
+    return aug_list
+
 def flip_transpose(image, mask):
     aug_list = [[image, mask]]
     
@@ -54,16 +63,24 @@ def rgb_shift(image_mask_list, rseed):
     
     return aug_list
 
-def augment16_and_save(image, mask, save_path, image_name, rseed):
-    aug_list1 = flip_transpose(image, mask)
-    aug_list2 = rgb_shift(aug_list1, rseed)
-    aug_list = aug_list1 + aug_list2
-    
+def save_aug_data(aug_list, save_path, image_name):
     for idx, (image, mask) in enumerate(aug_list):
         skimage.io.imsave(f'{save_path}/images_aug/{image_name}_{idx:2}.png'.replace(' ', '0'), image)
         np.save(f'{save_path}/gt_density_maps_aug/{image_name}_{idx:2}.npy'.replace(' ', '0'), mask)
         
-def augment16_from_dir_and_save(in_path, save_path, rseed=None):
+def augment4_and_save(image, mask, save_path, image_name, rseed):
+    aug_list1 = hflip(image, mask)
+    aug_list2 = rgb_shift(aug_list1, rseed)
+    aug_list = aug_list1 + aug_list2
+    save_aug_data(aug_list, save_path, image_name)
+
+def augment16_and_save(image, mask, save_path, image_name, rseed):
+    aug_list1 = flip_transpose(image, mask)
+    aug_list2 = rgb_shift(aug_list1, rseed)
+    aug_list = aug_list1 + aug_list2
+    save_aug_data(aug_list, save_path, image_name)
+
+def augment_from_dir_and_save(in_path, save_path, rseed, aug_type):
     random.seed(rseed)
     images_aug_path = f'{save_path}/images_aug'
     gt_density_maps_aug_path = f'{save_path}/gt_density_maps_aug'
@@ -78,4 +95,16 @@ def augment16_from_dir_and_save(in_path, save_path, rseed=None):
         img_name = img_name_png.split('.')[0]
         image = skimage.io.imread(f'{in_path}/images/{img_name_png}') / 255.
         mask = np.load(f'{in_path}/gt_density_maps/{img_name}.npy')
-        augment16_and_save(image, mask, save_path, img_name, random.randint(0, 543210))
+        if aug_type == 'aug4':
+            augment4_and_save(image, mask, save_path, img_name, random.randint(0, 543210))
+        elif aug_type == 'aug16':
+            augment16_and_save(image, mask, save_path, img_name, random.randint(0, 543210))
+        else:
+            print('Wrong aug_type: {aug_type}')
+            break
+
+def augment4_from_dir_and_save(in_path, save_path, rseed=None):
+    augment_from_dir_and_save(in_path, save_path, rseed=rseed, aug_type='aug4')
+            
+def augment16_from_dir_and_save(in_path, save_path, rseed=None):
+    augment_from_dir_and_save(in_path, save_path, rseed=rseed, aug_type='aug16')

@@ -245,3 +245,52 @@ def plot_aug16(aug_list):
     plt.subplot(2, num, num + 8)
     plt.axis('off')
     plt.imshow(mask_t_hf_vf_rgb, cmap='jet')
+    
+def plot_aug4(aug_list):
+    img, mask = aug_list[0]
+    img_hf, mask_hf = aug_list[1]
+    
+    img_rgb, mask_rgb = aug_list[2]
+    img_hf_rgb, mask_hf_rgb = aug_list[3]
+    
+    num = 4
+    figsize = (18, 6.5)
+    fontsize = 13
+    plt.figure(figsize=figsize)
+    
+    plt.subplot(2, num, 1)
+    plt.title('Original', fontsize=fontsize)
+    plt.axis('off')
+    plt.imshow(img)
+    
+    plt.subplot(2, num, num + 1)
+    plt.axis('off')
+    plt.imshow(mask, cmap='jet')
+    
+    plt.subplot(2, num, 2)
+    plt.title('HFlip', fontsize=fontsize)
+    plt.axis('off')
+    plt.imshow(img_hf)
+    
+    plt.subplot(2, num, num + 2)
+    plt.axis('off')
+    plt.imshow(mask_hf, cmap='jet')
+    
+    #plt.figure(figsize=figsize)
+    plt.subplot(2, num, 3)
+    plt.title('RGBShift', fontsize=fontsize)
+    plt.axis('off')
+    plt.imshow(img_rgb)
+    
+    plt.subplot(2, num, num + 3)
+    plt.axis('off')
+    plt.imshow(mask_rgb, cmap='jet')
+    
+    plt.subplot(2, num, 4)
+    plt.title('HFlip + RGBShift', fontsize=fontsize)
+    plt.axis('off')
+    plt.imshow(img_hf_rgb)
+    
+    plt.subplot(2, num, num + 4)
+    plt.axis('off')
+    plt.imshow(mask_hf_rgb, cmap='jet')
