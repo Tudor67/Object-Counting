@@ -35,6 +35,7 @@
 ## ShanghaiTech (Part B) Dataset
 | Method                         | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |
 | :---                           | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
+| FCRN-A, full images            | MSE     | 41/50  | 20.21  | 30.97  |  7.45%  |  8.89% | 16.34%  |
 | FCRN-A, full images            | LogCosh | 25/50  | 19.31  | 31.82  | 10.16%  |  5.45% | 15.61%  |
 |`FCRN-A, patches 16 * (256x256)`|`LogCosh`|`48/50` |`15.49` |`27.88` | `8.87%` | `3.65%`|`12.52%` |
 
