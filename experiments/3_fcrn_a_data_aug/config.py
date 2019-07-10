@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'FCRN_A'
 DATASET_NAME = 'shanghai_tech/part_b'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_mse_full_img_epochs_5_lr_1e-4'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_50_lr_1e-4'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -37,7 +37,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     VAL_SIZE = SHANGHAI_TECH_PART_B_VAL_SIZE
 
 ### train ###
-LOSS_NAME = 'mean_squared_error'
+LOSS_NAME = 'logcosh'
 LEARNING_RATE = 1e-4
 
 IMG_DIM = None
@@ -51,7 +51,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
 PATCH_DIM = IMG_DIM
 PATCHES_PER_IMAGE = 1
 BATCH_SIZE = 1
-EPOCHS = 5
+EPOCHS = 50
 SHUFFLE = True
 
 ### ground truth ###

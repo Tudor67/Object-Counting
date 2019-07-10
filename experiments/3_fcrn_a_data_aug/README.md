@@ -31,3 +31,10 @@
 | FCRN-A, patches 16 * (256x256)| LogCosh |  2/5   | 12.24 | 17.02  |  9.72% |  2.10% | 11.82% |
 
 * Optimizer: Adam(lr=1e-4).
+
+## ShanghaiTech (Part B) Dataset
+| Method                         | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |
+| :---                           | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
+| FCRN-A, full images            | LogCosh | 25/50  | 19.31  | 31.82  | 10.16%  |  5.45% | 15.61%  |
+
+* Optimizer: Adam(lr=1e-4).
