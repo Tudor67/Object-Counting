@@ -3,8 +3,9 @@ from keras.models import *
 from keras.optimizers import *
 
 def UNet(input_shape=(None, None, 3),
-           loss_name='mean_absolute_error',
-           pretrained_weights=None):
+         loss_name='mean_absolute_error',
+         learning_rate=1e-3,
+         pretrained_weights=None):
     # common params
     params = {
         'padding': 'same',
@@ -48,7 +49,7 @@ def UNet(input_shape=(None, None, 3),
     
     # build the model
     model = Model(inputs=inputs, outputs=conv8)
-    model.compile(optimizer=Adam(lr=1e-3),
+    model.compile(optimizer=Adam(lr=learning_rate),
                   loss=loss_name)
     
     if pretrained_weights is not None:
