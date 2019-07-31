@@ -21,3 +21,10 @@
 * Standard deviation corresponds to 5 different draws of training and validation sets;
 * Counts per image: 174 ± 64;
 * Optimizer: Adam(lr=1e-3).
+
+## CARPK Dataset
+| Method                        | Loss    | Epochs | MAE   | RMSE   | %U     | %O     |  %D    |
+| :---                          | :---:   | :---:  | :---: | :---:  | :---:  | :---:  | :---:  |
+| U-Net, full images            | MSE     |  4/10  | 10.27 | 13.36  | 5.40%  | 4.53%  | 9.93%  |
+
+* Optimizer: Adam(lr=1e-4).
