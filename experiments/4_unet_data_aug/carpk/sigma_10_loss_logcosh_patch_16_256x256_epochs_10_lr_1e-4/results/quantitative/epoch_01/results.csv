@@ -1,0 +1,4 @@
+Architecture_Name,Experiment_Name,Dataset_Name,Dataset_Split,MAE,RMSE,Underestimate,Overestimate,Difference
+UNet,carpk/sigma_10_loss_logcosh_patch_16_256x256_epochs_10_lr_1e-4,carpk,train,5.197,7.037,6.146%,6.073%,12.219%
+UNet,carpk/sigma_10_loss_logcosh_patch_16_256x256_epochs_10_lr_1e-4,carpk,val,5.598,7.808,8.074%,4.409%,12.483%
+UNet,carpk/sigma_10_loss_logcosh_patch_16_256x256_epochs_10_lr_1e-4,carpk,test,21.878,27.234,20.294%,0.848%,21.142%
