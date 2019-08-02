@@ -31,3 +31,10 @@
 | U-Net, patches 16 * (256x256) | LogCosh |  2/10  | 12.61 | 16.48  | 9.88%  | 2.30%  | 12.18% |
 
 * Optimizer: Adam(lr=1e-4).
+
+## ShanghaiTech (Part B) Dataset
+| Method                         | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |
+| :---                           | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
+| U-Net, full images             | MSE     | 36/50  | 17.64  | 28.62  |  7.92%  | 6.34%  | 14.26%  |
+
+* Optimizer: Adam(lr=1e-4).
