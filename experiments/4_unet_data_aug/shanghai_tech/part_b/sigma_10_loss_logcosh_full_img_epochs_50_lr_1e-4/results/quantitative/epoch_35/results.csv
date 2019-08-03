@@ -1,0 +1,4 @@
+Architecture_Name,Experiment_Name,Dataset_Name,Dataset_Split,MAE,RMSE,Underestimate,Overestimate,Difference
+UNet,shanghai_tech/part_b/sigma_10_loss_logcosh_full_img_epochs_50_lr_1e-4,shanghai_tech/part_b,train,8.278,10.95,2.025%,4.663%,6.688%
+UNet,shanghai_tech/part_b/sigma_10_loss_logcosh_full_img_epochs_50_lr_1e-4,shanghai_tech/part_b,val,15.672,22.051,5.741%,7.459%,13.200%
+UNet,shanghai_tech/part_b/sigma_10_loss_logcosh_full_img_epochs_50_lr_1e-4,shanghai_tech/part_b,test,18.541,29.269,7.471%,7.517%,14.988%

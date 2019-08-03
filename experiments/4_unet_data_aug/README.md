@@ -36,5 +36,6 @@
 | Method                         | Loss    | Epochs | MAE    | RMSE   | %U      | %O     |  %D     |
 | :---                           | :---:   | :---:  | :---:  | :---:  | :---:   | :---:  | :---:   |
 | U-Net, full images             | MSE     | 36/50  | 17.64  | 28.62  |  7.92%  | 6.34%  | 14.26%  |
+| U-Net, full images             | LogCosh | 29/50  | 15.88  | 26.11  |  8.42%  | 4.42%  | 12.84%  |
 
 * Optimizer: Adam(lr=1e-4).
