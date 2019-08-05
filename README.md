@@ -58,6 +58,10 @@ Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells
 | FCRN-A (our implementation)           | FCRN-A, LogCosh loss, full images         | 3.1 ± 0.3 | 3.1 ± 0.3 |
 |`FCRN-A (our implementation)`          |`FCRN-A, MSE loss, patches 4*(128x128)`    |`2.8 ± 0.3`|`2.7 ± 0.5`|
 | FCRN-A (our implementation)           | FCRN-A, LogCosh loss, patches 4*(128x128) | 3.0 ± 0.3 | 2.7 ± 0.5 |
+| U-Net (our implementation)            | U-Net, MSE loss, full images              | 3.4 ± 0.2 | 2.8 ± 0.3 |
+| U-Net (our implementation)            | U-Net, LogCosh loss, full images          | 3.2 ± 0.3 | 2.8 ± 0.1 |
+| U-Net (our implementation)            | U-Net, MSE loss, patches 4*(128x128)      | 3.1 ± 0.4 | 3.1 ± 0.5 |
+| U-Net (our implementation)            | U-Net, LogCosh loss, patches 4*(128x128)  | 2.8 ± 0.3 | 2.8 ± 0.2 |
 
 * N - number of train images;
 * Our implementation does not include data preprocessing;
@@ -90,9 +94,13 @@ MAE, RMSE, %U, %O for LPN, GAP and GSP are taken from Aich et al. (2018) \[[8]\]
 | U-Net (our implementation)  | U-Net, LogCosh loss, patches 32 * (128x128), 3/3 epochs | 14.03 | 16.49 |  4.72% |  8.83% | 13.55% |
 | Our implementation (with data aug)| ---                                               | ---   | ---   | ---    |  ---   | ---    |
 | FCRN-A (our implementation) | FCRN-A, MSE loss, full images, 8/10 epochs              | 10.41 | 12.99 |  8.52% |  1.54% | 10.06% |
-|`FCRN-A (our implementation)`|`FCRN-A, LogCosh loss, full images, 2/10 epochs`         | `9.95`|`14.92`| `7.94%`| `1.68%`| `9.62%`|
+| FCRN-A (our implementation) | FCRN-A, LogCosh loss, full images, 2/10 epochs          |  9.95 | 14.92 |  7.94% |  1.68% |  9.62% |
 | FCRN-A (our implementation) | FCRN-A, MSE loss, patches 16 * (256x256), 4/5 epochs    | 11.18 | 14.03 |  8.57% |  2.24% | 10.81% |
 | FCRN-A (our implementation) | FCRN-A, LogCosh loss, patches 16 * (256x256), 2/5 epochs| 12.24 | 17.02 |  9.72% |  2.10% | 11.82% |
+| U-Net (our implementation)  | U-Net, MSE loss, full images, 4/10 epochs               | 10.27 | 13.36 |  5.40% |  4.53% |  9.93% |
+|`U-Net (our implementation)` |`U-Net, LogCosh loss, full images, 1/13 epochs`          | `9.20`|`11.77`| `7.11%`| `1.78%`| `8.89%`|
+| U-Net (our implementation)  | U-Net, MSE loss, patches 16 * (256x256), 9/10 epochs    | 12.77 | 15.82 | 11.40% |  0.95% | 12.35% |
+| U-Net (our implementation)  | U-Net, LogCosh loss, patches 16 * (256x256), 2/10 epochs| 12.61 | 16.48 |  9.88% |  2.30% | 12.18% |
 
 ### ShanghaiTech (Part B)
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on ShanghaiTech (Part B) dataset.
@@ -103,9 +111,10 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 | Zhang et al. (2016) \[[10]\]     | MCNN                                                        | 26.4  | 41.3  | N/A    | N/A    | N/A    |
 | Sam et al. (2017) \[[11]\]       | Switching CNN                                               | 21.6  | 33.4  | N/A    | N/A    | N/A    |
 | Sindagi et al. (2017) \[[12]\]   | CP-CNN                                                      | 20.1  | 30.1  | N/A    | N/A    | N/A    |
-|__Ranjan et al. (2018)__ \[[13]\] |__ic-CNN (one stage)__                                       |__10.4__|__16.70__|__N/A__|__N/A__|__N/A__|
+| Ranjan et al. (2018) \[[13]\]    | ic-CNN (one stage)                                          | 10.4  | 16.70 | N/A    | N/A    | N/A    |
 | Ranjan et al. (2018) \[[13]\]    | ic-CNN (two stages)                                         | 10.7  | 16.00 | N/A    | N/A    | N/A    |
 | Olmschenk et al. (2019) \[[14]\] | MUD-i1NN                                                    | 14.4  | 20.0  | N/A    | N/A    | N/A    |
+| Mehta and Valloli (2019) \[[15]\]| W-Net                                                       |__6.9__|__10.3__|__N/A__|__N/A__ |__N/A__ |
 | Our implementation (without data aug)| ---                                                     | ---   | ---   | ---    | ---    | ---    |
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 5/20 epochs                  | 52.95 | 74.53 | 19.08% | 23.73% | 42.81% |
 | FCRN-A (our implementation)      | FCRN-A, LogCosh loss, full images, 24/30 epochs             | 19.95 | 33.94 | 11.70% |  4.43% | 16.13% |
@@ -119,7 +128,11 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, full images, 41/50 epochs                 | 20.21 | 30.97 |  7.45% |  8.89% | 16.34% |
 | FCRN-A (our implementation)      | FCRN-A, LogCosh loss, full images, 25/50 epochs             | 19.31 | 31.82 | 10.16% |  5.45% | 15.61% |
 | FCRN-A (our implementation)      | FCRN-A, MSE loss, patches 16 * (256x256), 48/50 epochs      | 19.03 | 32.80 | 12.66% |  2.72% | 15.38% |
-|`FCRN-A (our implementation)`     |`FCRN-A, LogCosh loss, patches 16 * (256x256), 48/50 epochs` |`15.49`|`27.88`| `8.87%`| `3.65%`|`12.52%`|
+| FCRN-A (our implementation)      | FCRN-A, LogCosh loss, patches 16 * (256x256), 48/50 epochs  | 15.49 | 27.88 |  8.87% |  3.65% | 12.52% |
+| U-Net (our implementation)       | U-Net, MSE loss, full images, 36/50 epochs                  | 17.64 | 28.62 |  7.92% |  6.34% | 14.26% |
+| U-Net (our implementation)       | U-Net, LogCosh loss, full images, 29/50 epochs              | 15.88 | 26.11 |  8.42% |  4.42% | 12.84% |
+| U-Net (our implementation)       | U-Net, MSE loss, patches 16 * (256x256), 44/50 epochs       | 18.46 | 30.63 | 10.27% |  4.65% | 14.92% |
+|`U-Net (our implementation)`      |`U-Net, LogCosh loss, patches 16 * (256x256), 50/50 epochs`  |`15.20`|`26.49`| `7.37%`| `4.92%`|`12.29%`|
 
 ## Qualitative results (1_FCRN-A, MSE loss)
 ![fcrn_a_vgg_cells_qualitative_results](./images/fcrn_a_vgg_cells_qualitative_results_full_and_patches.png)  
@@ -140,4 +153,5 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 [12]: https://arxiv.org/abs/1708.00953
 [13]: https://arxiv.org/abs/1807.09959
 [14]: https://arxiv.org/abs/1902.05379
+[15]: https://arxiv.org/abs/1903.11249
 
