@@ -36,7 +36,7 @@ def get_knn_dist(current_coords, label_coords):
     return dist.min()
 
 
-def iknn_map_from_dots_img(dots_img):
+def full_knn_map_from_dots_img(dots_img):
     label_coords = np.argwhere(dots_img == 1)
     
     num_rows, num_cols = dots_img.shape[:2]
@@ -46,4 +46,8 @@ def iknn_map_from_dots_img(dots_img):
         for j in range(num_cols):
             knn_map[i, j] = get_knn_dist((i, j), label_coords)
         
-    return 1. / (knn_map + 1.)
+    return knn_map
+
+
+def iknn_map_from_dots_img(dots_img):
+    return 1. / (full_knn_map_from_dots_img(dots_img) + 1.)
