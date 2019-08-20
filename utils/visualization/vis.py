@@ -294,3 +294,44 @@ def plot_aug4(aug_list):
     plt.subplot(2, num, num + 4)
     plt.axis('off')
     plt.imshow(mask_hf_rgb, cmap='jet')
+    
+
+def plot_seg_reg_maps(img, gt_seg_map, pred1, gt_density_map, pred2, mult_factor):
+    fraction = 0.047
+    pad = 0.02
+    fontsize = 16
+
+    num_plots = 5
+    plt.figure(figsize=(20, 6))
+    plt.subplot(1, num_plots, 1)
+    plt.title('Input Image\n\n', fontsize=fontsize)
+    plt.imshow(img)
+    plt.colorbar(fraction=fraction, pad=pad)
+    plt.axis('off')
+    
+    vmin = min(gt_seg_map.min(), pred1.min())
+    vmax = max(gt_seg_map.max(), pred1.max())
+    plt.subplot(1, num_plots, 2)
+    plt.title(f'Ground Truth\nSegmentation Map\n{gt_seg_map.sum()}', fontsize=fontsize)
+    plt.imshow(gt_seg_map.squeeze().astype(np.float32), cmap='gray', vmin=vmin, vmax=vmax)
+    plt.colorbar(fraction=fraction, pad=pad)
+    plt.axis('off')
+    plt.subplot(1, num_plots, 3)
+    plt.title(f'Prediction\nSegmentation Map\n{pred1.sum():.1f}', fontsize=fontsize)
+    plt.imshow(pred1.squeeze(), cmap='gray', vmin=vmin, vmax=vmax)
+    plt.colorbar(fraction=fraction, pad=pad)
+    plt.axis('off')
+    
+    vmin = min(gt_density_map.min(), pred2.min()) / mult_factor
+    vmax = max(gt_density_map.max(), pred2.max()) / mult_factor
+    plt.subplot(1, num_plots, 4)
+    plt.title(f'Ground Truth\nDensity Map\n{gt_density_map.sum()/mult_factor:.1f}', fontsize=fontsize)
+    plt.imshow(gt_density_map.squeeze()/mult_factor, cmap='jet', vmin=vmin, vmax=vmax)
+    plt.colorbar(fraction=fraction, pad=pad)
+    plt.axis('off')
+    plt.subplot(1, num_plots, 5)
+    plt.title(f'Prediction\nDensity Map\n{pred2.sum()/mult_factor:.1f}', fontsize=fontsize)
+    plt.imshow(pred2[0].squeeze()/mult_factor, cmap='jet', vmin=vmin, vmax=vmax)
+    plt.colorbar(fraction=fraction, pad=pad)
+    plt.axis('off')
+    plt.show()
