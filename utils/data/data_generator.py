@@ -11,7 +11,9 @@ class DataGenerator(keras.utils.Sequence):
                  density_map_multiplication_factor=100., 
                  shuffle=True,
                  ignored_images=[],
-                 data_augmentation=False):
+                 data_augmentation=False,
+                 output_mode=None,
+                 gt_seg_thr=None):
         
         path = f'{dataset_path}/{dataset_split}'
         img_path = f'{path}/images'
@@ -39,6 +41,8 @@ class DataGenerator(keras.utils.Sequence):
         self.batch_size = batch_size
         self.patches_per_image = patches_per_image
         self.shuffle = shuffle
+        self.output_mode = output_mode
+        self.gt_seg_thr = gt_seg_thr
         self.on_epoch_end()
         
     def __len__(self):
@@ -73,6 +77,11 @@ class DataGenerator(keras.utils.Sequence):
 
                 X[i * self.patches_per_image + j] = img[row:row+dim_0, col:col+dim_1, :].copy()
                 y[i * self.patches_per_image + j] = density_map[row:row+dim_0, col:col+dim_1, :].copy()
+        
+        if self.output_mode == 'seg_reg':
+            return np.asarray(X), [((np.asarray(y) / self.density_map_multiplication_factor) > self.gt_seg_thr),
+                                   np.asarray(y)]
+        
         return np.asarray(X), np.asarray(y)
     
     def __getitem__(self, index):

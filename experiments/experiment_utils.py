@@ -2,7 +2,7 @@ import numpy as np
 import os
 import pandas as pd
 
-def load_experiments_results(experiments_path, experiments_substrings, verbose=True):
+def load_experiments_results(experiments_path, experiments_substrings, verbose=True, csv_name='results'):
     res_list = []
     
     experiment_names = os.listdir(experiments_path)
@@ -10,7 +10,7 @@ def load_experiments_results(experiments_path, experiments_substrings, verbose=T
         if all(exp_substring in exp_name for exp_substring in experiments_substrings):
             if verbose:
                 print(exp_name)
-            res_path = f'{experiments_path}/{exp_name}/results/quantitative/results.csv'
+            res_path = f'{experiments_path}/{exp_name}/results/quantitative/{csv_name}.csv'
             if os.path.isfile(res_path):
                 res_df = pd.read_csv(res_path, index_col=[3])
                 res_list.append(res_df)
