@@ -25,3 +25,18 @@ Details:
 * Standard deviation corresponds to 5 different draws of training and validation sets;
 * Counts per image: 174 ± 64;
 * Optimizer: Adam(lr=1e-3).
+
+## CARPK Dataset
+| Method                 |  Method               | MAE   | RMSE  | %U    | %O    |  %D   |
+| :---                   |   :---:               | :---: | :---: | :---: | :---: | :---: |
+|`SegRegNet, full images`|`density_map`          |`8.47` |`10.71`|`6.85%`|`1.34%`|`8.19%`|
+| SegRegNet, full images | density_map*(seg>thr) | 8.66  | 10.91 | 7.10% | 1.26% | 8.36% |
+
+Details:
+- SegLoss = binary_crossentropy;
+- RegLoss = logcosh;
+- Seg epochs = 3/3;
+- Reg epochs = 2/3;
+- thr = 1e-3;
+
+* Optimizer: Adam(lr=1e-4).

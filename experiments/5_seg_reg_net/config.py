@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'SegRegNet'
-DATASET_NAME = 'vgg_cells'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/n_64_sigma_5_randseed_645_loss_logcosh_patch_4_128x128'
+DATASET_NAME = 'carpk'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_3_lr_1e-4'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -11,7 +11,7 @@ VAL_GT_COUNT_PATH = f'{VAL_PATH}/gt_counts'
 TEST_GT_COUNT_PATH = f'{TEST_PATH}/gt_counts'
 CHECKPOINTS_PATH = f'./{SUB_EXPERIMENT_NAME}/checkpoints'
 CHECKPOINT_FILENAME = f'{CHECKPOINTS_PATH}/' + 'best_model.hdf5'
-#CHECKPOINT_FILENAME = f'{CHECKPOINTS_PATH}/' + 'model.{epoch:02d}-{val_loss:.3f}.hdf5'
+CHECKPOINT_FILENAME_VAR = f'{CHECKPOINTS_PATH}/' + 'model.{epoch:02d}-{val_loss:.3f}.hdf5'
 LOGS_PATH = f'./{SUB_EXPERIMENT_NAME}/logs/'
 SEG_LOGS_FILENAME = f'{LOGS_PATH}/seg_logs.json'
 REG_LOGS_FILENAME = f'{LOGS_PATH}/reg_logs.json'
@@ -39,7 +39,7 @@ elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
 ### train ###
 SEG_LOSS_NAME = 'binary_crossentropy'
 REG_LOSS_NAME = 'logcosh'
-LEARNING_RATE = 1e-3
+LEARNING_RATE = 1e-4
 
 IMG_DIM = None
 if DATASET_NAME.lower() == 'vgg_cells':
@@ -49,11 +49,11 @@ elif DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     IMG_DIM = (768, 1024, 3) # ShanghaiTech
         
-PATCH_DIM = (128, 128, 3)
-PATCHES_PER_IMAGE = 4
-BATCH_SIZE = 16
-SEG_EPOCHS = 10
-REG_EPOCHS = 25
+PATCH_DIM = IMG_DIM
+PATCHES_PER_IMAGE = 1
+BATCH_SIZE = 1
+SEG_EPOCHS = 3
+REG_EPOCHS = 3
 SHUFFLE = True
 
 ### predictions ###
@@ -61,7 +61,7 @@ PRED_SEG_THR = None
 if DATASET_NAME.lower() == 'vgg_cells':
     PRED_SEG_THR = 1e-3
 elif DATASET_NAME.lower() == 'carpk':
-    PRED_SEG_THR = 0.2
+    PRED_SEG_THR = 1e-3
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     PRED_SEG_THR = 0.1
 
