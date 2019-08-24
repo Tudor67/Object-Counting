@@ -40,3 +40,18 @@ Details:
 - thr = 1e-3;
 
 * Optimizer: Adam(lr=1e-4).
+
+## ShanghaiTech (Part B) Dataset
+| Method                            |  Method               | MAE    | RMSE   | %U     | %O     |  %D    |
+| :---                              | :---:                 | :---:  | :---:  | :---:  | :---:  | :---:  |
+| SegRegNet, patches 16 * (256x256) | density_map           | 18.94  | 30.79  | 10.10% |  5.21% | 15.31% |
+|`SegRegNet, patches 16 * (256x256)`|`density_map*(seg>thr)`|`18.83` |`30.71` | `9.79%`| `5.43%`|`15.22%`|
+
+Details:
+- SegLoss = binary_crossentropy;
+- RegLoss = logcosh;
+- Seg epochs = 23/25;
+- Reg epochs = 18/50;
+- thr = 1e-3;
+
+* Optimizer: Adam(lr=1e-4).

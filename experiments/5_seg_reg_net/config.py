@@ -1,7 +1,7 @@
 ### experiments ###
 ARCHITECTURE_NAME = 'SegRegNet'
-DATASET_NAME = 'carpk'
-SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_full_img_epochs_3_lr_1e-4'
+DATASET_NAME = 'shanghai_tech/part_b'
+SUB_EXPERIMENT_NAME = f'{DATASET_NAME.lower()}/sigma_10_loss_logcosh_patch_16_256x256_epochs_50_lr_1e-4'
 DATASET_PATH = f'../../datasets/{DATASET_NAME.lower()}'
 TRAIN_PATH = f'{DATASET_PATH}/train'
 VAL_PATH = f'{DATASET_PATH}/val'
@@ -49,11 +49,11 @@ elif DATASET_NAME.lower() == 'carpk':
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
     IMG_DIM = (768, 1024, 3) # ShanghaiTech
         
-PATCH_DIM = IMG_DIM
-PATCHES_PER_IMAGE = 1
-BATCH_SIZE = 1
-SEG_EPOCHS = 3
-REG_EPOCHS = 3
+PATCH_DIM = (256, 256, 3)
+PATCHES_PER_IMAGE = 16
+BATCH_SIZE = 16
+SEG_EPOCHS = 25
+REG_EPOCHS = 50
 SHUFFLE = True
 
 ### predictions ###
@@ -63,7 +63,7 @@ if DATASET_NAME.lower() == 'vgg_cells':
 elif DATASET_NAME.lower() == 'carpk':
     PRED_SEG_THR = 1e-3
 elif DATASET_NAME.lower() == 'shanghai_tech/part_b':
-    PRED_SEG_THR = 0.1
+    PRED_SEG_THR = 1e-3
 
 ### ground truth ###
 # sigma for density map generation
