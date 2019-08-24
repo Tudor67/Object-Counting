@@ -56,12 +56,15 @@ Mean Absolute Error (MAE) and standard deviations for cell counting on VGG Cells
 | Our implementation (with data aug)    | ---                                       | ---       | ---       |
 | FCRN-A (our implementation)           | FCRN-A, MSE loss, full images             | 3.2 ± 0.3 | 2.8 ± 0.3 |
 | FCRN-A (our implementation)           | FCRN-A, LogCosh loss, full images         | 3.1 ± 0.3 | 3.1 ± 0.3 |
-|`FCRN-A (our implementation)`          |`FCRN-A, MSE loss, patches 4*(128x128)`    |`2.8 ± 0.3`|`2.7 ± 0.5`|
+| FCRN-A (our implementation)           | FCRN-A, MSE loss, patches 4*(128x128)     | 2.8 ± 0.3 | 2.7 ± 0.5 |
 | FCRN-A (our implementation)           | FCRN-A, LogCosh loss, patches 4*(128x128) | 3.0 ± 0.3 | 2.7 ± 0.5 |
 | U-Net (our implementation)            | U-Net, MSE loss, full images              | 3.4 ± 0.2 | 2.8 ± 0.3 |
 | U-Net (our implementation)            | U-Net, LogCosh loss, full images          | 3.2 ± 0.3 | 2.8 ± 0.1 |
 | U-Net (our implementation)            | U-Net, MSE loss, patches 4*(128x128)      | 3.1 ± 0.4 | 3.1 ± 0.5 |
-| U-Net (our implementation)            | U-Net, LogCosh loss, patches 4*(128x128)  | 2.8 ± 0.3 | 2.8 ± 0.2 |
+|`U-Net (our implementation)`           |`U-Net, LogCosh loss, patches 4*(128x128)` |`2.8 ± 0.3`|`2.8 ± 0.2`|
+| SegRegNet, density_map                | SegRegNet, LogCosh loss, patches 4*(128x128)| N/A     | 3.0 ± 0.2 |
+| SegRegNet, density_map*(seg_map>1e-3) | SegRegNet, LogCosh loss, patches 4*(128x128)| N/A     | 2.8 ± 0.4 |
+
 
 * N - number of train images;
 * Our implementation does not include data preprocessing;
@@ -98,9 +101,12 @@ MAE, RMSE, %U, %O for LPN, GAP and GSP are taken from Aich et al. (2018) \[[8]\]
 | FCRN-A (our implementation) | FCRN-A, MSE loss, patches 16 * (256x256), 4/5 epochs    | 11.18 | 14.03 |  8.57% |  2.24% | 10.81% |
 | FCRN-A (our implementation) | FCRN-A, LogCosh loss, patches 16 * (256x256), 2/5 epochs| 12.24 | 17.02 |  9.72% |  2.10% | 11.82% |
 | U-Net (our implementation)  | U-Net, MSE loss, full images, 4/10 epochs               | 10.27 | 13.36 |  5.40% |  4.53% |  9.93% |
-|`U-Net (our implementation)` |`U-Net, LogCosh loss, full images, 1/13 epochs`          | `9.20`|`11.77`| `7.11%`| `1.78%`| `8.89%`|
+| U-Net (our implementation)  | U-Net, LogCosh loss, full images, 1/13 epochs           |  9.20 | 11.77 |  7.11% |  1.78% |  8.89% |
 | U-Net (our implementation)  | U-Net, MSE loss, patches 16 * (256x256), 9/10 epochs    | 12.77 | 15.82 | 11.40% |  0.95% | 12.35% |
 | U-Net (our implementation)  | U-Net, LogCosh loss, patches 16 * (256x256), 2/10 epochs| 12.61 | 16.48 |  9.88% |  2.30% | 12.18% |
+|`SegRegNet, density_map`     |`SegRegNet, LogCosh loss, full images`                   |`8.47` |`10.71`|`6.85%` |`1.34%` |`8.19%` |
+| SegRegNet, density_map*(seg>1e-3)| SegRegNet, LogCosh loss, full images               | 8.66  | 10.91 | 7.10%  | 1.26%  | 8.36%  |
+
 
 ### ShanghaiTech (Part B)
 Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), Overestimate (%O) and Difference (%D) on ShanghaiTech (Part B) dataset.
@@ -133,6 +139,8 @@ Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), Underestimate (%U), O
 | U-Net (our implementation)       | U-Net, LogCosh loss, full images, 29/50 epochs              | 15.88 | 26.11 |  8.42% |  4.42% | 12.84% |
 | U-Net (our implementation)       | U-Net, MSE loss, patches 16 * (256x256), 44/50 epochs       | 18.46 | 30.63 | 10.27% |  4.65% | 14.92% |
 |`U-Net (our implementation)`      |`U-Net, LogCosh loss, patches 16 * (256x256), 50/50 epochs`  |`15.20`|`26.49`| `7.37%`| `4.92%`|`12.29%`|
+| SegRegNet, density_map           | SegRegNet, LogCosh loss, patches 16 * (256x256)             | 18.94 | 30.79 | 10.10% |  5.21% | 15.31% |
+| SegRegNet, density_map*(seg>1e-3)| SegRegNet, LogCosh loss, patches 16 * (256x256)             | 18.83 | 30.71 |  9.79% |  5.43% | 15.22% |
 
 ## Qualitative results (1_FCRN-A, MSE loss)
 ![fcrn_a_vgg_cells_qualitative_results](./images/fcrn_a_vgg_cells_qualitative_results_full_and_patches.png)  
